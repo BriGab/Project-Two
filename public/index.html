@@ -14,10 +14,16 @@
             rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="./assets/css/materialize.css"/>
 
+        <!--Favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
 
         <title>MoJo Landing Page</title>
     </head>
-    <body>
+    <body class="canvas-wrapper">
+        <canvas id="canvas-basic"></canvas>
         <main class="container">
             <div class="row"> <!--Title Div-->
                 <div class="row">
@@ -63,6 +69,24 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">//jQuery Link </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js">//Granium Link</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+
+        <script>
+            var granimInstance = new Granim({
+                element: '#canvas-basic',
+                direction: 'left-right',
+                isPausedWhenNotInView: true,
+                states : {
+                    "default-state": {
+                        gradients: [
+                            ['#ff9966', '#ff5e62'],
+                            ['#00F260', '#0575E6'],
+                            ['#e1eec3', '#f05053']
+                        ]
+                    }
+                }
+            });
+        </script>
     </body>
 </html>

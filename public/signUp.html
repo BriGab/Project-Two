@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Need to add materialize, jQuery, googlefonts -->
+        <!-- Materialize Links -->
+		<link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="./assets/css/materialize.css"/>
+
+        <!--Favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <title>MoJo Landing Page</title>
+    </head>
+    <body>
+        <header>
+            <div class=" row bloc-logo">
+                <canvas id="logo-canvas"></canvas>
+                <h1><a href="index.html" class="logo-mask">MoJo</a></h1>
+            </div>
+        </header>
+        <main class="container center-align">
+            <div class="row"> <!--Title Div-->
+                <div class="row">
+                    <h2>Sign Up</h2>
+                </div>
+                <div class="row">
+                    <form class="col s8">
+                        <!-- Name Input -->
+                        <div class="row"> 
+                            <div class="input-field col s12">
+                                <input id="name" type="text" class="validate">
+                                <label for="name">Name</label>
+                            </div>
+                        </div>
+                        <!-- Username Input -->
+                        <div class="row"> 
+                            <div class="input-field col s12">
+                                <input id="username" type="text" class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <!-- Password Input  -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    <!-- Submit Button -->
+                    <button class="btn waves-effect" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            
+        </footer>
+        
+        <!-- Script Links -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">//jQuery Link </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+    </body>
+</html>
