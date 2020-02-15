@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     const Author = sequelize.define("Author", {
         username: {
             type: DataTypes.STRING,
@@ -13,26 +13,26 @@ module.exports = (sequelize, DataTypes) {
             isNull: true
         },
         password: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             validate: {
                 len: [6]
             },
+            // sets a function that encrypts the password I think?
             get() {
-                return () => this.getDataValue('password')
+                return () => this.getDataValue("password");
             }
         },
         salt: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             get() {
-                return () => this.getDataValue('salt')
+                // sets a function that checks to make sure the password matches the encryption I think?
+                return () => this.getDataValue("salt");
             }
         }
     });
 
     Author.associate = (models) => {
-        // We're saying that a Post should belong to an Author
-        // A Post can't be created without an Author due to the foreign key constraint
-        Authors.hasMany(models.Post, {
+        Author.hasMany(models.Post, {
             foreignKey: {
                 notNull: true
             }
@@ -40,4 +40,4 @@ module.exports = (sequelize, DataTypes) {
     };
 
     return Author;
-}
+};
