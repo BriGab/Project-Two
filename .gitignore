@@ -1,1 +1,5 @@
-.gitignore/
+.gitignore
+node_modules/
+package-lock.json
+.eslintrc.json
+.eslintignore
