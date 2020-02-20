@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MOJO Meditation Journal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/journal.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container rel-main mx-2">
+        <div class="row">
+            <div class="col s12 ab-main">
+                <form id="journal">
+                    <div class="form-group">
+                        <textarea style="border:none" placeholder="Title" class="form-control txta"
+                            id="title"></textarea>
+                        <textarea style="border:none" placeholder="Write something here..." class="form-control txta"
+                            rows="20" id="body"></textarea>
+                        <center>
+                            <button type="submit"
+                                class="waves-effect waves-light btn-large blue-grey darken-1 submit">Submit</button>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas-basic"></canvas>
+</body>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+<script src="./assets/js/journal.js"></script>
+
+</html>

@@ -1,13 +1,12 @@
-<div>
-    <h1>{{name}}'s blog</h1>
+<div class="container rel-main mx-2">
+    <div class="row">
+        <div class="col s12">
+            <h1>{{name}}'s blog</h1>
+            <ul>
+                {{#each post}}
+                {{> posts-block}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </div>
-{{#each post}}
-<div>
-    <ul>
-        <li>title: {{title}}</li>
-        <li>body: {{body}}</li>
-        <li>username: {{User.username}}</li>
-        <li>mood: {{Mood.mood}}</li>
-    </ul>
-</div>
-{{/each}}
