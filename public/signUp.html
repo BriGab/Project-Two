@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Need to add googlefonts -->
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- Materialize Links -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="./assets/css/materialize.css"/>
+
+        <!--Favicon-->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+        <title>MoJo Sign Up</title>
+    </head>
+    <body>
+        <header>
+            <a href="index.html" class="grey-text text-darken-3">
+                <h1>MoJo</h1>
+            </a>
+        </header>
+
+        <main class="container">
+            <div class="row"> <!--Title Div-->
+                <h3 class="grey-text text-darken-1">Sign Up</h3>
+
+                <form class="col s8">
+                    <!-- Name Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="name" type="text" class="validate">
+                            <label for="name">Name</label>
+                        </div>
+                    </div>
+                    <!-- Email Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <!-- Username Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <!-- Password Input  -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <button class="btn waves-effect grey darken-3" type="submit" name="action">Sign Up
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            
+        </footer>
+
+        <canvas id="canvas-basic"></canvas>
+        
+        <!-- Script Links -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">//jQuery Link </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js">//Granium Link</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+
+        <script>
+            var granimInstance = new Granim({
+                element: '#canvas-basic',
+                direction: 'left-right',
+                isPausedWhenNotInView: true,
+                states : {
+                    "default-state": {
+                        gradients: [
+                            ['#daf70a', '#b3df43'],
+                            ['#97952d', '#3c6927'],
+                            ['#d4b0e0', '#6b3e97'],
+                            ['#ffffff', '#626262']
+                        ],
+                        transitionSpeed: 10000
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
