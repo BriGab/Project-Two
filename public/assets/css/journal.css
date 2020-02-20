@@ -1,0 +1,67 @@
+
+body {
+  font-family: 'Courier Prime', monospace;
+  color: #000;
+  }
+
+/* Expandable text area */
+.txta {
+  width: 100%;
+  /* max-width: 500px; */
+  min-height: 100px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/*End Expandable Text Area */
+
+#canvas-basic {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index:-1;
+}
+
+.rel-main{
+  position: relative;
+  height: 100vh;
+  /* border: 3px solid #73AD21; */
+
+}
+
+.ab-main {
+  position: absolute;
+  bottom:30vh;
+  /* border: 3px solid #73AD21; */
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:black;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+}
