@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
         body: DataTypes.TEXT
     });
     Post.associate = (models) => {
-        Post.belongsTo(models.Author, {
+        Post.belongsTo(models.User, {
             foreignKey: {
-                notNull: true
+                allowNull: false
             }
         });
         Post.belongsTo(models.Mood, {
             foreignKey: {
-                notNull: true
+                allowNull: false
             }
         });
     };
