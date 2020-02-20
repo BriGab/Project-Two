@@ -4,61 +4,62 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Need to add materialize, jQuery, googlefonts -->
+        <!-- Need to add googlefonts -->
         <!-- Stylesheet -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <!-- Materialize Links -->
-		<link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="./assets/css/materialize.css"/>
 
         <!--Favicon-->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
 
         <title>MoJo Landing Page</title>
     </head>
     <body>
         <main class="container">
-            <div class="row"> <!--Title Div-->
+            <!-- Welcome Div -->
+            <div class="row">
                 <div class="row">
                     <h2>Welcome to</h2>
                 </div>
-                <div class=" row bloc-logo">
-                    <canvas id="logo-canvas"></canvas>
-                    <h1><a href="index.html" class="logo-mask">MoJo</a></h1>
-                </div>
-                <div class="row small">
-                    <h4>a mode based journaling site</h4>
+                <a href="index.html" class="row">
+                    <h1>MoJo</h1>
+                </a>
+                <div class="row">
+                    <h4>a mood based journaling site</h4>
                 </div>
             </div>
             <!--Sign In-->
             <div class="row">
-                <form class="col s8">
+                <div class="col s8">
                     <!-- Username Input -->
                     <div class="row"> 
                         <div class="input-field col s12">
-                            <input id="username" type="text" class="validate">
-                            <label for="username">Username</label>
+                            <input id="username" type="text" class="validate grey-text text-darken-3"><strong>
+                     </strong>       <label for="username">Username</label>
                         </div>
                     </div>
                     <!-- Password Input  -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
+                            <input id="password" type="password" class="validate grey-text text-darken-3"><strong>
+                     </strong>       <label for="password">Password</label>
                         </div>
                     </div>
-                    <!-- Submit Button -->
-                    <button class="btn waves-effect" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <!-- Submit Button/ Sign Up Link -->
+                    <div class="row">
+                        <button class="btn waves-effect grey darken-3 row" type="submit" name="action">Login
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <div class="row">
+                            <a href="signUp.html" class="grey-text text-darken-3"><strong>New User? Sign Up Now!</strong></a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </main>
@@ -83,10 +84,12 @@
                 states : {
                     "default-state": {
                         gradients: [
-                            ['#ff9966', '#ff5e62'],
-                            ['#00F260', '#0575E6'],
-                            ['#e1eec3', '#f05053']
-                        ]
+                            ['#daf70a', '#b3df43'],
+                            ['#97952d', '#3c6927'],
+                            ['#d4b0e0', '#6b3e97'],
+                            ['#ffffff', '#626262']
+                        ],
+                        transitionSpeed: 10000
                     }
                 }
             });

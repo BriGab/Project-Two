@@ -4,81 +4,73 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- Need to add materialize, jQuery, googlefonts -->
+        <!-- Need to add googlefonts -->
         <!-- Stylesheet -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <!-- Materialize Links -->
-		<link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="./assets/css/materialize.css"/>
 
         <!--Favicon-->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./assets/favicon/site.webmanifest">
 
-        <title>MoJo Landing Page</title>
+        <title>MoJo Sign Up</title>
     </head>
     <body>
-        <canvas id="canvas-basic"></canvas>
         <header>
-            <div class=" row bloc-logo">
-                <canvas id="logo-canvas"></canvas>
-                <h1><a href="index.html" class="logo-mask">MoJo</a></h1>
-            </div>
+          <a href="index.html"><h1>MoJo</h1></a>
         </header>
-        <main class="container center-align">
+
+        <main class="container">
             <div class="row"> <!--Title Div-->
-                <div class="row">
-                    <h2>Sign Up</h2>
-                </div>
-                <div class="row">
-                    <form class="col s8">
-                        <!-- Name Input -->
-                        <div class="row"> 
-                            <div class="input-field col s12">
-                                <input id="name" type="text" class="validate">
-                                <label for="name">Name</label>
-                            </div>
+                <h3>Sign Up</h3>
+
+                <form class="col s8">
+                    <!-- Name Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="name" type="text" class="validate">
+                            <label for="name">Name</label>
                         </div>
-                        <!-- Email Input -->
-                        <div class="row"> 
-                            <div class="input-field col s12">
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
-                            </div>
+                    </div>
+                    <!-- Email Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
                         </div>
-                        <!-- Username Input -->
-                        <div class="row"> 
-                            <div class="input-field col s12">
-                                <input id="username" type="text" class="validate">
-                                <label for="username">Username</label>
-                            </div>
+                    </div>
+                    <!-- Username Input -->
+                    <div class="row"> 
+                        <div class="input-field col s12">
+                            <input id="username" type="text" class="validate">
+                            <label for="username">Username</label>
                         </div>
-                        <!-- Password Input  -->
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
+                    </div>
+                    <!-- Password Input  -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
                         </div>
+                    </div>
                     <!-- Submit Button -->
-                    <button class="btn waves-effect" type="submit" name="action">Submit
+                    <button class="btn waves-effect grey darken-3" type="submit" name="action">Sign Up
                         <i class="material-icons right">send</i>
                     </button>
-                    </form>
-                </div>
+                </form>
             </div>
         </main>
 
         <footer>
             
         </footer>
+
+        <canvas id="canvas-basic"></canvas>
         
         <!-- Script Links -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -95,10 +87,12 @@
                 states : {
                     "default-state": {
                         gradients: [
-                            ['#ff9966', '#ff5e62'],
-                            ['#00F260', '#0575E6'],
-                            ['#e1eec3', '#f05053']
-                        ]
+                            ['#daf70a', '#b3df43'],
+                            ['#97952d', '#3c6927'],
+                            ['#d4b0e0', '#6b3e97'],
+                            ['#ffffff', '#626262']
+                        ],
+                        transitionSpeed: 10000
                     }
                 }
             });
