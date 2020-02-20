@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Need to add materialize, jQuery, googlefonts -->
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="./assets/css/style.css">
         <!-- Materialize Links -->
 		<link
         rel="stylesheet"
@@ -23,6 +25,7 @@
         <title>MoJo Landing Page</title>
     </head>
     <body>
+        <canvas id="canvas-basic"></canvas>
         <header>
             <div class=" row bloc-logo">
                 <canvas id="logo-canvas"></canvas>
@@ -74,7 +77,24 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">//jQuery Link </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js">//Granium Link</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+
+        <script>
+            var granimInstance = new Granim({
+                element: '#canvas-basic',
+                direction: 'left-right',
+                isPausedWhenNotInView: true,
+                states : {
+                    "default-state": {
+                        gradients: [
+                            ['#ff9966', '#ff5e62'],
+                            ['#00F260', '#0575E6'],
+                            ['#e1eec3', '#f05053']
+                        ]
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
