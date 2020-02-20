@@ -1,0 +1,13 @@
+<div>
+    <h1>{{name}}'s blog</h1>
+</div>
+{{#each post}}
+<div>
+    <ul>
+        <li>title: {{title}}</li>
+        <li>body: {{body}}</li>
+        <li>username: {{User.username}}</li>
+        <li>mood: {{Mood.mood}}</li>
+    </ul>
+</div>
+{{/each}}
