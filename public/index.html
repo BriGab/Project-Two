@@ -22,49 +22,56 @@
     </head>
     <body>
         <main class="container">
-            <!-- Welcome Div -->
-            <div class="row">
-                <div class="row">
-                    <h2 class="grey-text text-darken-1">Welcome to</h2>
-                </div>
-                <a href="index.html" class="row grey-text text-darken-3">
-                    <h1>MoJo</h1>
-                </a>
-                <div class="row">
-                    <h4 class="grey-text text-darken-1">a mood based journaling site</h4>
+            <!-- Welcome Card -->
+            <div class="row center-align">
+                <div class="col m12">           
+                    <h2 class="grey-text text-darken-3">Welcome to</h2>
+                    <a href="index.html" class="row black-text">
+                        <h1>MoJo</h1>
+                    </a>
+                    <h4 class="grey-text text-darken-3">a mood based journaling site</h4>
                 </div>
             </div>
-            <!--Sign In-->
+            <!-- Sign In Card  -->
             <div class="row">
-                <div class="col s8">
-                    <!-- Username Input -->
-                    <div class="row"> 
-                        <div class="input-field col s12">
-                            <input id="username" type="text" class="validate grey-text text-darken-3"><strong>
-                     </strong>       <label for="username">Username</label>
-                        </div>
-                    </div>
-                    <!-- Password Input  -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate grey-text text-darken-3"><strong>
-                     </strong>       <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <!-- Submit Button/ Sign Up Link -->
-                    <div class="row">
-                        <button class="btn waves-effect grey darken-3 row" type="submit" name="action">Login
-                            <i class="material-icons right">send</i>
-                        </button>
+                <div class="col m12">
+                    <div class="card-panel">            
+                        <!--Sign In-->
+                        <h4 class="grey-text text-darken-3">Login</h4>
+                        <form class="col s8">
+                            <!-- Username Input -->
+                            <div class="row"> 
+                                <div class="input-field col s12">
+                                    <input id="username" type="text" class="validate grey-text text-darken-3">
+                                    <label for="username">Username</label>
+                                </div>
+                            </div>
+                            <!-- Password Input  -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password" type="password" class="validate grey-text text-darken-3">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <!-- Submit Button/ Sign Up Link -->
+                            <div class="row">
+                                <button class="btn waves-effect grey darken-3 row" type="submit" name="action">Login 
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>            
                         <div class="row">
-                            <a href="signUp.html" class="grey-text text-darken-3"><strong>New User? Sign Up Now!</strong></a>
+                            <div class="col s8">
+                                <a href="signUp.html" class="grey-text text-darken-3"><strong>New User? Sign Up Now!</strong></a>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </main>
-        <footer>
-            
+
+        <footer class="center-align">
+            <span class="white-text"><strong>Powered by Granium.js & Materialize</strong></span>   
         </footer>
 
         <canvas id="canvas-basic"></canvas>
@@ -75,6 +82,7 @@
         crossorigin="anonymous">//jQuery Link </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js">//Granium Link</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+        <script src="js/signup.js"></script>
 
         <script>
             var granimInstance = new Granim({

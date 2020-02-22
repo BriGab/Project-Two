@@ -1,3 +1,4 @@
+/* Granium CSS */
 #canvas-basic {
     position: fixed;
     display: block;
@@ -9,16 +10,31 @@
     left: 0;
     z-index: -1;
 }
-header {
 
-    padding-right: 45%;
-    padding-left: 45%;
+/* Materialize CSS */
+/* Card Alterations */
+.card-panel {
+    background-color: rbga(255, 255, 255, 0.1);
 }
 
-a {
-    color: #424242;
+/* form {
+    padding-top: 2%;
+    padding-bottom: 2%;
+} */
+
+/* Form Alterations */
+/*Label Focused/Action Coloring */
+.input-field input:focus + label {
+    color: #424242 !important;
+    font-weight: bold;
+}
+/* label underline focus color */
+.row .input-field input:focus {
+    border-bottom: 1.5px solid #424242 !important;
+    box-shadow: 0 1px 0 0 #424242 !important
 }
 
+/* General CSS */
 main {
     padding-right: 10%;
     padding-left: 10%;
@@ -26,35 +42,6 @@ main {
 }
 
 footer {
-    color: #ffffff;
+    background-color: #424242;
 }
-
-/* Text Form Input Lines */
-  /* label color */
-  .input-field label {
-    color: #424242;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: #000;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #424242;
-    box-shadow: 0 1px 0 0 #000;
-  }
-  /* valid color */
-  .input-field input[type=text].valid {
-    border-bottom: 1px solid #424242;
-    box-shadow: 0 1px 0 0 #000;
-  }
-  /* invalid color */
-  .input-field input[type=text].invalid {
-    border-bottom: 1px solid #424242;
-    box-shadow: 0 1px 0 0 #000;
-  }
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: #000;
-  }
 

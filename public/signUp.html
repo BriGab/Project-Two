@@ -21,55 +21,60 @@
         <title>MoJo Sign Up</title>
     </head>
     <body>
-        <header>
+        <header class="container center-align">
             <a href="index.html" class="grey-text text-darken-3">
                 <h1>MoJo</h1>
             </a>
         </header>
 
         <main class="container">
-            <div class="row"> <!--Title Div-->
-                <h3 class="grey-text text-darken-1">Sign Up</h3>
-
-                <form class="col s8">
-                    <!-- Name Input -->
-                    <div class="row"> 
-                        <div class="input-field col s12">
-                            <input id="name" type="text" class="validate">
-                            <label for="name">Name</label>
-                        </div>
+            <!-- Title Card -->
+            <div class="row">
+                <div class="col m12">
+                    <div class="card-panel">
+                        <h4 class="grey-text text-darken-1">Sign Up</h4>
+        
+                        <form>
+                            <!-- Name Input -->
+                            <div class="row"> 
+                                <div class="input-field col s12">
+                                    <input id="name" type="text" class="validate">
+                                    <label for="name">Name</label>
+                                </div>
+                            </div>
+                            <!-- Email Input -->
+                            <div class="row"> 
+                                <div class="input-field col s12">
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <!-- Username Input -->
+                            <div class="row"> 
+                                <div class="input-field col s12">
+                                    <input id="username" type="text" class="validate">
+                                    <label for="username">Username</label>
+                                </div>
+                            </div>
+                            <!-- Password Input  -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password" type="password" class="validate">
+                                    <label for="password">Password</label>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <button class="btn waves-effect grey darken-3" type="submit" name="action">Sign Up
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
                     </div>
-                    <!-- Email Input -->
-                    <div class="row"> 
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email</label>
-                        </div>
-                    </div>
-                    <!-- Username Input -->
-                    <div class="row"> 
-                        <div class="input-field col s12">
-                            <input id="username" type="text" class="validate">
-                            <label for="username">Username</label>
-                        </div>
-                    </div>
-                    <!-- Password Input  -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <!-- Submit Button -->
-                    <button class="btn waves-effect grey darken-3" type="submit" name="action">Sign Up
-                        <i class="material-icons right">send</i>
-                    </button>
-                </form>
+                </div>
             </div>
         </main>
 
-        <footer>
-            
+        <footer class="center-align">
+            <span class="white-text"><strong>Powered by Granium.js & Materialize</strong></span>   
         </footer>
 
         <canvas id="canvas-basic"></canvas>
@@ -80,6 +85,7 @@
         crossorigin="anonymous">//jQuery Link </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js">//Granium Link</script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">//Materialize CSS Framework Link</script>
+        <script src="js/signup.js"></script>
 
         <script>
             var granimInstance = new Granim({
