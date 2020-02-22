@@ -164,6 +164,10 @@ $(document).ready(function () {
             $postTitle.val(data.title);
             $postText.val(data.body);
             $postDate.val(data.CreatedAt);
+            $('#saving').attr("data-postid", data.id);
+            $('#deleting').attr("data-postid", data.id);
+            var testing = $('#deleting').data("postid");
+            console.log("PostId: ", testing);
             if (data.Mood) {
                 console.log(data.Mood.id);
                 //remove selected one
@@ -188,8 +192,74 @@ $(document).ready(function () {
 
     $postList.on("click", ".post-list", handlePostView);
 
+    $("#deleting").on("click", function () {
+        event.preventDefault();
+        var a = $('#deleting').data('postid');
+        console.log(a);
 
+        // $.delete("/api/posts/" + a, function () {
+        //     $('#modal3').modal('close');
 
+        //     // window.location.href = "/"; Need to take people to journal page upon completion
+        // });
 
+        $.ajax({
+            url: "/api/posts/" + a,
+            method: 'DELETE',
+            success: function (response) {
+                console.log(response);
+                // $('#modal3').modal('close');
+                window.location.reload();
+            }
+        });
+
+        // $.ajax({
+        //     method: "DELETE",
+        //     url: "/api/posts/" + a
+        // }).then(function (data) {
+
+        //     // window.location.reload();
+        // });
+        // $('#modal3').modal('close');
+
+    });
+
+    $("#saving").on("click", function () {
+        event.preventDefault();
+        console.log("clicked");
+        var a = $('#saving').data('postid');
+        console.log(a);
+        // var postTitle = $(".post-title").val();
+        var postText = $(".post-textarea").val();
+        console.log(postText);
+
+        // Don't submit empty posts
+        // if (!postText.val().trim()) {
+        //     return;
+        // }
+        // Constructing a newPost object to hand to the database
+        var newPost = {
+            body: postText
+        };
+        console.log(newPost);
+        // $.delete("/api/posts/" + a, function () {
+        //     $('#modal3').modal('close');
+
+        //     // window.location.href = "/"; Need to take people to journal page upon completion
+        // });
+
+        $.ajax({
+            url: "/api/posts/" + a,
+            method: 'PUT',
+            success: function (response) {
+                console.log(response);
+                // $('#modal3').modal('close');
+                // window.location.reload();
+            }
+        });
+    });
 });
+
+
+
 

@@ -1,3 +1,4 @@
+{{#if post}}
 <nav>
     <div class="nav-wrapper">
         <ul id="nav-mobile" class="right">
@@ -11,9 +12,11 @@
         <div class="col s12">
             <h1>{{name}}'s blog</h1>
             <ul class="post-group">
+
                 {{#each post}}
                 {{> posts-block}}
                 {{/each}}
+
             </ul>
         </div>
     </div>
@@ -49,7 +52,7 @@
         <input class="post-title" placeholder="Note Title" maxlength="28" type="text">
         <textarea class="post-textarea" placeholder="Note Text"></textarea>
         <h6 class="dateCreated"></h6>
-        <div class="fixed-action-btn right-align">
+        {{!-- <div class="fixed-action-btn right-align">
             <a class="btn-floating btn-large red">
                 <i class="large material-icons">mode_edit</i>
             </a>
@@ -58,10 +61,11 @@
                 <li><a id="save" class="btn-floating yellow darken-1"><i class="material-icons">save</i></a></li>
                 <li><a id="delete" class="btn-floating green"><i class="material-icons">delete</i></a></li>
             </ul>
-        </div>
+        </div> --}}
     </div>
     <div class="modal-footer">
-        <button class="modal-close waves-effect waves-green btn-flat">Save</button>
-        <button class="modal-close waves-effect waves-green btn-flat">Delete</button>
+        <button id="saving" class="modal-close waves-effect waves-green btn-flat">Save</button>
+        <button id="deleting" class="modal-close waves-effect waves-green btn-flat">Delete</button>
     </div>
 </div>
+{{/if}}
