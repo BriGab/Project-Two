@@ -65,15 +65,22 @@ module.exports = function (app) {
     if (!req.user) {
       res.sendStatus(403).json({ message: "invalid user" });
     } else {
-      console.log(req.user);
-      const hbsObj = {
-        username: req.user.username,
-        id: req.user.id
-      };
-      //send to the front end
-      console.log(hbsObj);
-      // res.json(hbsObj);
-      res.render("journal", hbsObj);
+      Mood.findAll({
+        raw: true
+      }).then(dbMood => {
+        console.log(req.user);
+        const hbsObj = {
+          username: req.user.username,
+          id: req.user.id,
+          mood: dbMood
+        };
+        //send to the front end
+        console.log(hbsObj);
+        // res.json(hbsObj);
+        res.render("journal", hbsObj);
+      }).catch(err => {
+        res.json({ message: err.message });
+      });
     }
   });
 
@@ -117,18 +124,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/moods", (req, res) => {
-    Mood.findAll({
-      raw: true
-    }).then(dbMood => {
-      moodObj = {
-        mood: dbMood
-      };
-      console.log(moodObj);
-      res.render("journal", moodObj);
-    }).catch(err => {
-      res.json({ message: err.message });
-    });
-  });
+  // app.get("/api/moods", (req, res) => {
+  // });
 };
 
