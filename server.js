@@ -35,6 +35,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/update-routes.js")(app);
+require("./routes/delete-routes")(app);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

@@ -11,15 +11,11 @@ module.exports = (app) => {
         console.log(req.user);
         // this sends the req.user data we posted to the api so that it can be grabbed by the back end
         res.json(req.user);
-    }).catch(err => {
-        res.json({ message: err.message });
-        });
+    });
     // create a new user either with POST function at /api/users in postman or via signup form in the app
     app.post("/api/users", function (req, res) {
         User.create(req.body).then(function (dbUser) {
             res.json(dbUser);
         });
-    }).catch(err => {
-        res.json({ message: err.message });
     });
 };
