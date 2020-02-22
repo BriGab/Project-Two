@@ -46,18 +46,18 @@ module.exports = function (app) {
     }
   });
 
-  // app.delete("/api/posts/:id", function (req, res) {
-  //   Post.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function (dbPost) {
-  //     res.json(dbPost);
-  //   }).catch(err => {
-  //     console.log(err.message);
-  //     res.json({ message: err.message });
-  //   });
-  // });
+  app.delete("/api/posts/:id", function (req, res) {
+    Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    }).catch(err => {
+      console.log(err.message);
+      res.json({ message: err.message });
+    });
+  });
 
   //Keeley's
   app.get("/:username/journal", function (req, res) {
