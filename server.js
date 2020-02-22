@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const passport = require("./config/passport")
+const passport = require("./config/passport");
 const exphbs = require("express-handlebars");
 
 const app = express();
@@ -20,13 +20,17 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// passport
+// passport setup
 app.use(session({ secret: "get money", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// dotenv setup
+require("dotenv").config();
+
 // Routes
 // =============================================================
+
 require("./routes/html-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
@@ -34,6 +38,6 @@ require("./routes/update-routes.js")(app);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log(`App listening on http://localhost:${PORT}/posts`);
+    console.log(`App listening on http://localhost:${PORT}`);
   });
 });
