@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    $("#submit").on("click", function (event) {
+$(document).ready(function(){
+    $("#submit").on("click", function(event){
         event.preventDefault();
         const user = $("#username").val().trim();
         const password = $("#password").val().trim();
@@ -12,15 +12,16 @@ $(document).ready(function () {
             return
         }
         $.post("api/login", signIn)
-            .then(function (data) {
-                console.log(signIn)
-                window.location.replace(`/${user}/posts`)
-            })
-            .catch(function (err) {
-                if (err.status = 401) {
-                    alert("Login failed: Invalid username or password.")
-                }
-                console.log(err)
-            });
+        .then(function(data){
+            console.log(signIn)
+            window.location.replace(`/${user}/posts`)
+        })
+        .catch(function(err){
+            if (err.status = 401) {
+            alert("Login failed: Invalid username or password.")
+            }
+            console.log(err)
+        });
     })
+
 })
