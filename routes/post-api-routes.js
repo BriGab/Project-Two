@@ -39,7 +39,7 @@ module.exports = function (app) {
         // console.log("dbPost", dbPost);
         // res.json(hbsObj);
         //send to the front end
-        res.render("journal", hbsObj);
+        res.render("posts", hbsObj);
       }).catch(err => {
         res.json({ message: err.message });
       });
