@@ -1,4 +1,4 @@
-![Image description](https://github.com/BriGab/Project-Two/tree/master/public/assets/images/gradientBlue.JPG)
+<img src="./public/assets/images/gradientBlue.JPG" alt="Screenshot" style="max-width:100%;">
 
 # MoJo
 
@@ -38,5 +38,4 @@ This application was created by the following contributors:
 ### Bri https://github.com/BriGab
 
 
-
-![Image description](https://github.com/BriGab/Project-Two/tree/master/public/assets/images/gradientPink.JPG)
+<img src="./public/assets/images/gradientPink.JPG" alt="Screenshot" style="max-width:100%;">
