@@ -83,7 +83,7 @@ module.exports = function (app) {
       });
     }
   });
-
+  // find one post by id
   app.get("/api/posts/:id", function (req, res) {
     Post.findOne({
       where: {
@@ -123,8 +123,5 @@ module.exports = function (app) {
       res.json({ message: err.message });
     });
   });
-
-  // app.get("/api/moods", (req, res) => {
-  // });
 };
 
