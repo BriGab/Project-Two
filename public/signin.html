@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign in</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
+
 <body>
 
     <div>
@@ -14,9 +16,9 @@
             <div><button id="submit" type="submit">submit</button></div>
         </form>
     </div>
-    
+    <script src="assets/js/signIn.js"></script>
     <script>
-        $("form").on("submit", function(event){
+        $("form").on("submit", function (event) {
             event.preventDefault();
             console.log("hit")
             const user = $("#username").val().trim();
@@ -29,11 +31,12 @@
             console.log("loginObj", loginObj);
 
             $.post("/api/login", loginObj)
-            .then(function(data) {
-                console.log("then data", data);
-                window.location.replace(`/${user}/posts`)
-            });
+                .then(function (data) {
+                    console.log("then data", data);
+                    window.location.replace(`/${user}/posts`)
+                });
         });
     </script>
 </body>
+
 </html>

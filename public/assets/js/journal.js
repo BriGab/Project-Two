@@ -1,19 +1,29 @@
 $(document).ready(function () {
-    $(document).ready(function () {
-        $('.modal').modal();
-    });
-    let authId;
-    $.get("/api/user_data").then(function (data) {
-        $(".submit").attr("data-authid", data.id);
-        console.log(data.id);
-        authId = data.id;
-    });
+    $('.modal').modal();
+    $('select').formSelect();
+    $('#modal1').modal('open');
+    // let authId;
+    // $.get("/api/user_data").then(function (data) {
+    //     $(".submit").attr("data-authid", data.id);
+    //     console.log(data.id);
+    //     authId = data.id;
+    // });
 
     //Page variables
     const titleInput = $("#title")
     const bodyInput = $("#body");
-    // const authId = $(".submit").data("authid");
+    const authId = $(".submit").data("authid");
+    let mood;
+    let moodnum;
+    console.log(authId);
 
+    $("#mood").on("click", function (event) {
+        // event.preventDefault();
+        mood = $("#select-mood").val();
+        moodnum = $("#select-mood").find(":selected").data("num");
+        console.log(mood);
+        console.log(moodnum);
+    });
     $("#journal").on("submit", handleFormSubmit);
 
     // A function for handling what happens when the form to create a new post is submitted
@@ -31,7 +41,8 @@ $(document).ready(function () {
             body: bodyInput
                 .val()
                 .trim(),
-            AuthorId: authId
+            MoodId: moodnum,
+            UserId: authId
             //Need to find a way to add in foreign key to posts
         };
         console.log(authId);
@@ -111,4 +122,90 @@ $(document).ready(function () {
             });
         })(i);
     }
+
+
+    //Redirects
+    // $(".journal-link").on("submit", function(event){
+    //     event.preventDefault();
+    //     console.log("hit")
+    //     const user = $("#username").val().trim();
+    //     const password = $("#password").val().trim();
+
+    //     const loginObj = {
+    //         username: user,
+    //         password: password
+    //     }
+    //     console.log("loginObj", loginObj);
+
+    //     $.post("/api/login", loginObj)
+    //     .then(function(data) {
+    //         console.log("then data", data);
+    //         window.location.replace(`/${user}/posts`)
+    //     });
+    // });
+    $(".journal-link").on("click", function (event) {
+        event.preventDefault();
+        $.get("/api/user_data").then(function (data) {
+            console.log(data.username);
+            window.location.replace(`/${data.username}/journal`)
+
+        });
+    });
+
+    $(".post-link").on("click", function (event) {
+        event.preventDefault();
+        $.get("/api/user_data").then(function (data) {
+            console.log(data.username);
+            window.location.replace(`/${data.username}/posts`)
+
+        });
+    });
+    $.get("/api/user_data").then(function (data) {
+        console.log(data.username);
+    });
+    //Note Viewing Modal
+    var $postTitle = $(".post-title");
+    var $postText = $(".post-textarea");
+    var $postList = $(".post-group");
+    let activePost = {};
+
+    // Sets the activePost and displays it
+    const handlePostView = function () {
+        console.log("anything");
+        activePost = $(this).data("num");
+        console.log(activePost);
+        // renderActiveNote();
+
+        $.get("/api/posts/" + activePost).then(function (data) {
+            console.log(data);
+            $postTitle.val(data.title);
+            $postText.val(data.body);
+            if (data.Mood) {
+                console.log(data.Mood.id);
+                //remove selected one
+                $('option:selected', 'select[name="mood-options"]').removeAttr('selected');
+                //Using the value
+                // $(`select[name="mood-options"]).find('option[value="${data.Mood.id}"]'`).attr("selected", true);
+                const select = $('[name=mood-options]').val(data.Mood.id).attr('selected', 'selected');
+
+                console.log(select);
+                // $("#select-mood").val("default");
+                // $("#select-mood").val(data.Mood.id);
+
+                // $(`#select-mood option[value=default]`).attr('selected', 'deselected');
+                // var display = $(`#select-mood option[value=${data.Mood.id}]`).attr('selected', 'selected');
+                // console.log(display);
+                // $("#select-mood").val(data.Mood.id).change();
+            }
+            $('#modal2').modal('open');
+        });
+
+    };
+
+    $postList.on("click", ".post-list", handlePostView);
+
+
+
+
 });
+
