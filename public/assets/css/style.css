@@ -17,10 +17,13 @@
     background-color: rbga(255, 255, 255, 0.1);
 }
 
-/* form {
-    padding-top: 2%;
-    padding-bottom: 2%;
-} */
+h1 {
+    font-family: 'Courgette', Georgia, 'Times New Roman', Times, serif ;
+}
+
+html, form, h2, h4 {
+    font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
+}
 
 /* Form Alterations */
 /*Label Focused/Action Coloring */
