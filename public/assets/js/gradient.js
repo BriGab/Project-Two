@@ -11,7 +11,7 @@ $(document).ready(function () {
         } else if (value == "Angry") {
             granimInstance.changeState('orange-state');
         } else {
-            granimInstance.changeState('sad-state');
+            granimInstance.changeState('cheerful-state');
         }
     }
     var granimInstance = new Granim({

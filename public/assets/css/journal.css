@@ -1,8 +1,39 @@
-
 body {
   font-family: 'Courier Prime', monospace;
-  color: #000;
-  }
+  color: #424242;
+  background-color: #e8e8e8;
+}
+
+nav {
+  background-color: transparent; 
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+nav ul a {
+  color: #424242;
+}
+
+a {
+  color: #424242;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Comfortaa', cursive;
+  color: #424242;
+}
+
+p{
+  font-family: 'Dosis', sans-serif;
+}
+
+.py3 {
+  padding: 10px 0;
+}
+
+.grad-bg {
+  width: 100%;
+  border: 2px solid #424242;
+}
 
 /* Expandable text area */
 .txta {
@@ -18,7 +49,7 @@ body {
 /*End Expandable Text Area */
 
 #canvas-basic {
-  position: absolute;
+  position: fixed;
   display: block;
   width: 100%;
   height: 100%;
@@ -29,6 +60,9 @@ body {
   z-index:-1;
 }
 
+#modal2 {
+  background-color: #E8E8E8;
+}
 .rel-main{
   position: relative;
   height: 100vh;
@@ -43,25 +77,28 @@ body {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color:black;
+  color: #424242;
   font-size: 1.5em;
   text-align: center;
-}
-
-::-moz-placeholder { /* Firefox 19+ */
-  color: black;
+  font-family: 'Dosis', sans-serif;
+  }
+  
+  ::-moz-placeholder { /* Firefox 19+ */
+  color: #424242;
   font-size: 1.5em;
   text-align: center;
-}
-
-:-ms-input-placeholder { /* IE 10+ */
-  color: black;
+  font-family: 'Dosis', sans-serif;
+  }
+  
+  :-ms-input-placeholder { /* IE 10+ */
+  color: #424242;
   font-size: 1.5em;
   text-align: center;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  color: black;
+  font-family: 'Dosis', sans-serif;
+  }
+  
+  :-moz-placeholder { /* Firefox 18- */
+  color: #424242;
   font-size: 1.5em;
   text-align: center;
-}
+  }
