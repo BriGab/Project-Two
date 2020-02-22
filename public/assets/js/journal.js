@@ -251,6 +251,7 @@ $(document).ready(function () {
         $.ajax({
             url: "/api/posts/" + a,
             method: 'PUT',
+            data: newPost,
             success: function (response) {
                 console.log(response);
                 // $('#modal3').modal('close');
