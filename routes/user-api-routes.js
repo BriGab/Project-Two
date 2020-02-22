@@ -8,7 +8,7 @@ module.exports = (app) => {
     // uses POST method to post user login data (username and password) to api/login so that it can be grabbed by the back end, verified, and redirected
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
         // console.log("req.user",req.user.id);
-        console.log(req.user);
+        // console.log(req.user);
         // this sends the req.user data we posted to the api so that it can be grabbed by the back end
         res.json(req.user);
     });
