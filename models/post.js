@@ -23,3 +23,16 @@ module.exports = (sequelize, DataTypes) => {
 
     return Post;
 };
+
+/* json example:
+"title: "",
+"body": ""
+
+mySQL table example
+id: 1,
+title: this is a blog post,
+body: this is the body of a post. it can be long,
+UserId: 1,
+MoodId: 3,
+createdAt: current timestamp,
+updatedAt: current timestamp */
