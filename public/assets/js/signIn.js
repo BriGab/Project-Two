@@ -8,9 +8,9 @@ $(document).ready(function(){
             password: password
         }
         if (!signIn.username.trim() || !signIn.password.trim()) {
-            alert("Please enter a valid username and password")
+            M.toast({html: 'Please fill out username and password fields'})
             return
-        }
+        } 
         $.post("api/login", signIn)
         .then(function(data){
             console.log(signIn)
@@ -18,7 +18,7 @@ $(document).ready(function(){
         })
         .catch(function(err){
             if (err.status = 401) {
-            alert("Login failed: Invalid username or password.")
+            M.toast({html: "Username or password not valid please try again"})
             }
             console.log(err)
         });

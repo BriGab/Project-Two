@@ -11,19 +11,21 @@ $(document).ready(function () {
         username: userName,
         password: password
       };
-      console.log(signUp);
-      if ((!signUp.name.trim() || !signUp.username.trim() || !signUp.password.trim()) ||
-        (signUp.password.length < 6) || (signUp.username.length < 6)) {
-        alert("Username must be at least 6 characters")
+      if (!signUp.name.trim() || !signUp.username.trim() || !signUp.password.trim() || !signUp.email.trim()) {
+        M.toast({html: "Please fill in missing fields"})
         return;
+      } else if ((signUp.password.length < 6) || (signUp.username.length < 6)) {
+        M.toast({html: "Username and password must be at least 6 characters"})
       }
       $.post("/api/users", signUp)
         .then(function (data) {
           console.log(signUp)
           window.location.replace("/")
         })
-        .catch(function (error) {
-          console.error(error)
+        .catch(function (err) {
+          if (err) {
+            M.toast({html: "Username is already in use please try again"})
+          }
         })
   
     })
