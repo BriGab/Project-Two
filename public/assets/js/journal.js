@@ -125,24 +125,6 @@ $(document).ready(function () {
 
 
     //Redirects
-    // $(".journal-link").on("submit", function(event){
-    //     event.preventDefault();
-    //     console.log("hit")
-    //     const user = $("#username").val().trim();
-    //     const password = $("#password").val().trim();
-
-    //     const loginObj = {
-    //         username: user,
-    //         password: password
-    //     }
-    //     console.log("loginObj", loginObj);
-
-    //     $.post("/api/login", loginObj)
-    //     .then(function(data) {
-    //         console.log("then data", data);
-    //         window.location.replace(`/${user}/posts`)
-    //     });
-    // });
     $(".journal-link").on("click", function (event) {
         event.preventDefault();
         $.get("/api/user_data").then(function (data) {
@@ -167,6 +149,7 @@ $(document).ready(function () {
     var $postTitle = $(".post-title");
     var $postText = $(".post-textarea");
     var $postList = $(".post-group");
+    var $postDate = $(".dateCreated");
     let activePost = {};
 
     // Sets the activePost and displays it
@@ -180,6 +163,7 @@ $(document).ready(function () {
             console.log(data);
             $postTitle.val(data.title);
             $postText.val(data.body);
+            $postDate.val(data.CreatedAt);
             if (data.Mood) {
                 console.log(data.Mood.id);
                 //remove selected one
@@ -197,7 +181,7 @@ $(document).ready(function () {
                 // console.log(display);
                 // $("#select-mood").val(data.Mood.id).change();
             }
-            $('#modal2').modal('open');
+            $('#modal3').modal('open');
         });
 
     };
