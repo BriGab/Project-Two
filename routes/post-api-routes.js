@@ -2,18 +2,16 @@ const { User, Post, Mood } = require("../models");
 // const { Op } = require("sequelize");
 //post user mood
 module.exports = function (app) {
-
-
   // create a new post
-
   app.post("/api/posts", function (req, res) {
     Post.create(req.body).then(function (dbPost) {
       res.json(dbPost);
+    }).catch(err => {
+      console.log(err.message);
+      res.json({ message: err.message });
     });
-  }).catch(err => {
-    console.log(err.message);
-    res.json({ message: err.message });
   });
+
   // get all posts by id of a logged in user
   app.get("/:username/posts", function (req, res) {
     // checks to make sure there's req.user data from the login verification and if not sends a 403 forbidden
@@ -41,27 +39,25 @@ module.exports = function (app) {
         // console.log("dbPost", dbPost);
         // res.json(hbsObj);
         //send to the front end
-        res.render("posts", hbsObj);
+        res.render("journal", hbsObj);
+      }).catch(err => {
+        res.json({ message: err.message });
       });
-
-    };
-  });
-
-  app.delete("/api/posts/:id", function (req, res) {
-    Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    });
-
     }
-  }).catch(err => {
-    console.log(err.message);
-    res.json({ message: err.message });
-
   });
+
+  // app.delete("/api/posts/:id", function (req, res) {
+  //   Post.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function (dbPost) {
+  //     res.json(dbPost);
+  //   }).catch(err => {
+  //     console.log(err.message);
+  //     res.json({ message: err.message });
+  //   });
+  // });
 
   //Keeley's
   app.get("/:username/journal", function (req, res) {
@@ -78,7 +74,7 @@ module.exports = function (app) {
       console.log(hbsObj);
       // res.json(hbsObj);
       res.render("journal", hbsObj);
-    };
+    }
   });
 
   app.get("/api/posts/:id", function (req, res) {
@@ -110,6 +106,29 @@ module.exports = function (app) {
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
+  });
+
+  // mood routes for now
+  app.post("/api/moods", (req, res) => {
+    Mood.create(req.body).then(dbMood => {
+      res.json(dbMood);
+    }).catch(err => {
+      res.json({ message: err.message });
+    });
+  });
+
+  app.get("/api/moods", (req, res) => {
+    Mood.findAll({
+      raw: true
+    }).then(dbMood => {
+      moodObj = {
+        mood: dbMood
+      };
+      console.log(moodObj);
+      res.render("journal", moodObj);
+    }).catch(err => {
+      res.json({ message: err.message });
+    });
   });
 };
 
