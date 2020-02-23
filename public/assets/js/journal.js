@@ -2,12 +2,6 @@ $(document).ready(function () {
     $('.modal').modal();
     $('select').formSelect();
     $('#modal1').modal('open');
-    // let authId;
-    // $.get("/api/user_data").then(function (data) {
-    //     $(".submit").attr("data-authid", data.id);
-    //     console.log(data.id);
-    //     authId = data.id;
-    // });
 
     //Page variables
     const titleInput = $("#title")
@@ -15,7 +9,6 @@ $(document).ready(function () {
     const authId = $(".submit").data("authid");
     let mood;
     let moodnum;
-    console.log(authId);
 
     $("#mood").on("click", function (event) {
         // event.preventDefault();
@@ -53,7 +46,10 @@ $(document).ready(function () {
     // Submits a new post -- need to bring people to the journal page upon completion
     function submitPost(post) {
         $.post("/api/posts", post, function () {
-            // window.location.href = "/"; Need to take people to journal page upon completion
+            $.get("/api/user_data").then(function (data) {
+                console.log(data.username);
+                window.location.replace(`/${data.username}/posts`)
+            });
         });
     }
 
@@ -134,6 +130,8 @@ $(document).ready(function () {
         });
     });
 
+
+
     $(".post-link").on("click", function (event) {
         event.preventDefault();
         $.get("/api/user_data").then(function (data) {
@@ -197,11 +195,6 @@ $(document).ready(function () {
         var a = $('#deleting').data('postid');
         console.log(a);
 
-        // $.delete("/api/posts/" + a, function () {
-        //     $('#modal3').modal('close');
-
-        //     // window.location.href = "/"; Need to take people to journal page upon completion
-        // });
 
         $.ajax({
             url: "/api/posts/" + a,
@@ -213,15 +206,6 @@ $(document).ready(function () {
             }
         });
 
-        // $.ajax({
-        //     method: "DELETE",
-        //     url: "/api/posts/" + a
-        // }).then(function (data) {
-
-        //     // window.location.reload();
-        // });
-        // $('#modal3').modal('close');
-
     });
 
     $("#saving").on("click", function () {
@@ -229,24 +213,20 @@ $(document).ready(function () {
         console.log("clicked");
         var a = $('#saving').data('postid');
         console.log(a);
-        // var postTitle = $(".post-title").val();
-        var postText = $(".post-textarea").val();
-        console.log(postText);
+        console.log($postText);
+        var postText = $postText[0].value;
+        console.log("Post Text: ", postText);
 
         // Don't submit empty posts
-        // if (!postText.val().trim()) {
-        //     return;
-        // }
+        if (!postText.trim()) {
+            return;
+        }
+
         // Constructing a newPost object to hand to the database
         var newPost = {
             body: postText
         };
         console.log(newPost);
-        // $.delete("/api/posts/" + a, function () {
-        //     $('#modal3').modal('close');
-
-        //     // window.location.href = "/"; Need to take people to journal page upon completion
-        // });
 
         $.ajax({
             url: "/api/posts/" + a,
@@ -255,7 +235,7 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response);
                 // $('#modal3').modal('close');
-                // window.location.reload();
+                window.location.reload();
             }
         });
     });

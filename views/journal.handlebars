@@ -1,11 +1,8 @@
-<nav>
-    <div class="nav-wrapper">
-        <ul id="nav-mobile" class="right">
-            <li><a class="post-link" href="/{{username}}/posts">Posts</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div>
-</nav>
+{{!-- <div style="text-align:right;"> --}}
+<div class="menu" align="right">
+    <a class="post-link" href="/">Posts</a>&nbsp;&nbsp;&nbsp;<a href="/logout">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+{{!-- </div> --}}
 <div class="container rel-main mx-2">
     <div class="row">
         <div class="col s12 ab-main">
@@ -34,9 +31,9 @@
             <div class="input-field">
                 <select id="select-mood">
                     <option value="default" disabled selected>Tell us how you're feeling</option>
-                    <option data-num="1" value="Happy">Happy</option>
-                    <option data-num="2" value="Sad">Sad</option>
-                    <option data-num="3" value="Angry">Angry</option>
+                    {{#each mood}}
+                    <option data-num="{{id}}" value="{{mood}}">{{mood}}</option>
+                    {{/each}}
                 </select>
                 <label>Mood</label>
             </div>
