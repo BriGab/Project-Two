@@ -2,21 +2,28 @@ $(document).ready(function () {
     $("#mood").on("click", function () {
         $("#select-mood").on("change", bgChoice(event));
     });
+
     function bgChoice(event) {
         event.preventDefault();
         var value = $("#select-mood").val();
-        if (value == "Sad") {
-            console.log(value);
+        if (value == "Happy") {
+            granimInstance.changeState('cheerful-state');
+        } else if (value == "Sad") {
             granimInstance.changeState('sad-state');
         } else if (value == "Angry") {
             granimInstance.changeState('angry-state');
+        } else if (value == "Scared") {
+            granimInstance.changeState('scared-state');
+        } else if (value == "Surprised") {
+            granimInstance.changeState('surprised-state');
         } else {
             granimInstance.changeState('cheerful-state');
         }
     }
+
     var granimInstance = new Granim({
         element: '#canvas-basic',
-        direction: 'radial',
+        direction: 'left-right',
         isPausedWhenNotInView: true,
         states: {
             "default-state": {
@@ -29,21 +36,25 @@ $(document).ready(function () {
             },
             "sad-state": {
                 gradients: [
-                    ['#000000', '#738996'],
-                    ['#485f6e', '#eeeeee']
+                    ['#9D50BB', '#6E48AA'],
+                    ['#4776E6', '#8E54E9']
                 ],
-                transitionSpeed: 8000
+                transitionSpeed: 2000
             },
             "angry-state": {
-                gradients: [
-                    ['#fb7925', '#b16a3d'],
-                    ['#7b0004', '#b1174b']
-            ],
+                gradients: [['#FF4E50', '#F9D423']],
                 loop: false
             },
-            "sad-state": {
+            "surprised-state": {
                 gradients: [
                     ['#29323c', '#485563'],
+                    ['#FF6B6B', '#556270'],
+                    ['#f0ab51', '#eceba3']
+                ],
+                transitionSpeed: 10000
+            },
+            "scared-state": {
+                gradients: [
                     ['#FF6B6B', '#556270'],
                     ['#80d3fe', '#7ea0c4'],
                     ['#f0ab51', '#eceba3']
