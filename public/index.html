@@ -39,30 +39,28 @@
                     <div class="card-panel">            
                         <!--Sign In-->
                         <h4 class="grey-text text-darken-3">Login</h4>
-                        <form class="col s8">
+                        <form class="col m12">
                             <!-- Username Input -->
                             <div class="row"> 
-                                <div class="input-field col s12">
+                                <div class="input-field col m12">
                                     <input id="username" type="text" class="validate grey-text text-darken-3">
                                     <label for="username">Username</label>
                                 </div>
                             </div>
                             <!-- Password Input  -->
                             <div class="row">
-                                <div class="input-field col s12">
+                                <div class="input-field col m12">
                                     <input id="password" type="password" class="validate grey-text text-darken-3">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
                             <!-- Submit Button/ Sign Up Link -->
-                            <div class="row">
-                                <button class="btn waves-effect grey darken-3 row" id="submit" type="submit" name="action">Login 
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
                         </form>            
-                        <div class="row">
-                            <div class="col s8">
+                        <div class="spacing"> 
+                            <button class="btn waves-effect grey darken-3 row" id="submit" type="submit" name="action">Login 
+                                <i class="material-icons right">send</i>
+                            </button>
+                            <div class="row">
                                 <a href="signUp.html" class="grey-text text-darken-3"><strong>New User? Sign Up Now!</strong></a>
                             </div>
                         </div>
@@ -88,7 +86,7 @@
         <script>
             var granimInstance = new Granim({
                 element: '#canvas-basic',
-                direction: 'left-right',
+                direction: 'radial',
                 isPausedWhenNotInView: true,
                 states : {
                     "default-state": {
@@ -98,7 +96,7 @@
                             ['#d4b0e0', '#6b3e97'],
                             ['#ffffff', '#626262']
                         ],
-                        transitionSpeed: 10000
+                        transitionSpeed: 8000
                     }
                 }
             });

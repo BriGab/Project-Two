@@ -25,6 +25,10 @@ html, form, h2, h4 {
     font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
 }
 
+.spacing {
+    margin-left: 20px;
+}
+
 /* Form Alterations */
 /*Label Focused/Action Coloring */
 .input-field input:focus + label {

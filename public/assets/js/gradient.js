@@ -7,16 +7,16 @@ $(document).ready(function () {
         var value = $("#select-mood").val();
         if (value == "Sad") {
             console.log(value);
-            granimInstance.changeState('violet-state');
+            granimInstance.changeState('sad-state');
         } else if (value == "Angry") {
-            granimInstance.changeState('orange-state');
+            granimInstance.changeState('angry-state');
         } else {
             granimInstance.changeState('cheerful-state');
         }
     }
     var granimInstance = new Granim({
         element: '#canvas-basic',
-        direction: 'left-right',
+        direction: 'radial',
         isPausedWhenNotInView: true,
         states: {
             "default-state": {
@@ -27,15 +27,18 @@ $(document).ready(function () {
                 ],
                 transitionSpeed: 10000
             },
-            "violet-state": {
+            "sad-state": {
                 gradients: [
-                    ['#9D50BB', '#6E48AA'],
-                    ['#4776E6', '#8E54E9']
+                    ['#000000', '#738996'],
+                    ['#485f6e', '#eeeeee']
                 ],
-                transitionSpeed: 2000
+                transitionSpeed: 8000
             },
-            "orange-state": {
-                gradients: [['#FF4E50', '#F9D423']],
+            "angry-state": {
+                gradients: [
+                    ['#fb7925', '#b16a3d'],
+                    ['#7b0004', '#b1174b']
+            ],
                 loop: false
             },
             "sad-state": {
