@@ -1,4 +1,4 @@
-<img src="./public/assets/images/gradientBlue.JPG" alt="Screenshot" style="max-width:100%;">
+![gradientBlue](public/assets/images/gradientblue.JPG)
 
 # MoJo
 
@@ -38,4 +38,4 @@ This application was created by the following contributors:
 ### Bri https://github.com/BriGab
 
 
-<img src="./public/assets/images/gradientPink.JPG" alt="Screenshot" style="max-width:100%;">
+![gradientPink](public/assets/images/gradientpink.JPG)
