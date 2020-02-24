@@ -13,7 +13,7 @@
                         rows="20" id="body"></textarea>
                     <center>
                         <button data-authid="{{id}}" type="submit"
-                            class="waves-effect waves-light btn-large blue-grey darken-1 submit">Submit
+                            class="waves-effect waves-light btn grey darken-3 submit">SAVE
                         </button>
                     </center>
                 </div>
@@ -23,13 +23,12 @@
 </div>
 <canvas id="canvas-basic"></canvas>
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>How are you feeling today?</h4>
-        <p>Set your mood and choose a color theme</p>
+<div id="modal1" class="modal" style="overflow: visible;">
+    <div class="modal-content" style="overflow: visible;">
+        <h4 class="cursive">How are you feeling today?</h4>
         <div class="py3">
             <div class="input-field">
-                <select id="select-mood">
+                <select id="select-mood" style="overflow: hidden;">
                     <option value="default" disabled selected>Tell us how you're feeling</option>
                     {{#each mood}}
                     <option data-num="{{id}}" value="{{mood}}">{{mood}}</option>
@@ -39,8 +38,10 @@
             </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <a href="#!" id="mood" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    <div class="modal-footer py3">
+        <center><a href="#!" id="mood" class="waves-effect waves-light btn-large grey darken-3"><i
+                    class="material-icons left">favorite_border</i>SUBMIT</a></center>
+        {{!-- <a href="#!" id="mood" class="modal-close waves-effect waves-green btn-flat">Submit</a> --}}
     </div>
 </div>
 </div>

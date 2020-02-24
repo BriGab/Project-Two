@@ -13,33 +13,23 @@
                     {{> posts-block}}
                     {{/each}}
                 </ul>
-                {{!-- <button id="fucking-button" class="waves-effect waves-light btn-large blue-grey darken-1 submit">Submit --}}
                 </button>
             </div>
         </div>
     </div>
-    <!--Kelly's Modal-->
-    <!-- Search Error Modal  -->
+    <!--Modal-->
     <div id="modal3" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h3 class="postTitle left-align">Update your post...</h3>
-            <input class="post-title" placeholder="Note Title" maxlength="28" type="text">
+            <h4 class="post-title"></h4>
             <textarea class="post-textarea" placeholder="Note Text"></textarea>
             <h6 class="dateCreated"></h6>
-            {{!-- <div class="fixed-action-btn right-align">
-            <a class="btn-floating btn-large red">
-                <i class="large material-icons">mode_edit</i>
-            </a>
-            <ul>
-                <li><a id="edit" class="btn-floating red"><i class="material-icons">edit</i></a></li>
-                <li><a id="save" class="btn-floating yellow darken-1"><i class="material-icons">save</i></a></li>
-                <li><a id="delete" class="btn-floating green"><i class="material-icons">delete</i></a></li>
-            </ul>
-        </div> --}}
         </div>
         <div class="modal-footer">
-            <button id="saving" class="modal-close waves-effect waves-green btn-flat">Save</button>
-            <button id="deleting" class="modal-close waves-effect waves-green btn-flat">Delete</button>
+            {{!-- <button id="saving" class="modal-close waves-effect waves-green btn-flat left">Save</button>
+            <button id="deleting" class="modal-close waves-effect waves-green btn-flat right">Delete</button> --}}
+            <a id="saving" class="btn-floating yellow darken-1"><i class="material-icons">save</i></a>
+            <a id="deleting" class="btn-floating green"><i class="material-icons">delete</i></a>
         </div>
     </div>
     <canvas id="canvas-basic"></canvas>
