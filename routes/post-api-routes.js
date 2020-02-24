@@ -76,8 +76,6 @@ module.exports = function (app) {
       Mood.findAll({
         raw: true
       }).then(dbMood => {
-        console.log("Moods:", dbMood);
-        console.log("Dbmood ID: ", dbMood.id);
         // console.log(req.user);
         const hbsObj = {
           username: req.user.username,

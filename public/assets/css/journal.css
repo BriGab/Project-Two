@@ -1,24 +1,10 @@
 body {
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Dosis', sans-serif;
   color: #424242;
   background-color: #e8e8e8;
 }
 
-nav {
-  background-color: transparent; 
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-nav ul a {
-  color: #424242;
-}
-
-a {
-  color: #424242;
-}
-
 h1,h2,h3,h4 {
-  font-family: 'Comfortaa', cursive;
   color: #424242;
 }
 
@@ -26,13 +12,32 @@ p{
   font-family: 'Dosis', sans-serif;
 }
 
+.cursive {
+  font-family: 'Courgette', Georgia, 'Times New Roman', Times, serif ;
+}
+
+/* Menu styles */
+.menu {
+  padding: 10px 5px;
+}
+
+.menu a {
+  color: #424242;
+  text-align:right;
+}
+
 .py3 {
   padding: 10px 0;
 }
 
+
+/* Styles for each post */
 .grad-bg {
   width: 100%;
-  border: 2px solid #424242;
+  background-color: rgba(0,0,0,.3);
+  margin: 10px 0;
+  padding: 5px 20px;
+  /* border: 2px solid #424242; */
 }
 
 /* Expandable text area */
@@ -48,6 +53,7 @@ p{
 
 /*End Expandable Text Area */
 
+/* Gradient background settings */
 #canvas-basic {
   position: fixed;
   display: block;
@@ -60,19 +66,53 @@ p{
   z-index:-1;
 }
 
-#modal2 {
-  background-color: #E8E8E8;
+
+/* Modal Styles */
+#modal1, #modal3 {
+  background-color: #E8E8E8 ;
 }
+
+.modal-footer {
+  background-color: #E8E8E8 !important;
+  min-height: 80px !important;
+}
+
+.modal-footer a {
+  font-size: 1.2em;
+  background-image: linear-gradient(to right, #424242 0%, #424242 51%, #424242 100%);
+}
+
+#select-mood .dropdown-content li > a, .dropdown-content li > span {
+  color: #424242  !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #424242;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #424242;
+  box-shadow: 0 1px 0 0 #424242;
+}
+
+.post-textarea {
+  height: 70%;
+}
+
+#saving, #deleting {
+  margin:20px 5px;
+}
+
+/* Journal Page */
 .rel-main{
   position: relative;
   height: 100vh;
   /* border: 3px solid #73AD21; */
-
 }
 
 .ab-main {
   position: absolute;
-  bottom:30vh;
+  bottom:15vh;
   /* border: 3px solid #73AD21; */
 }
 
