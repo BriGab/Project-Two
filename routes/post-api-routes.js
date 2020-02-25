@@ -1,5 +1,4 @@
 const { User, Post, Mood } = require("../models");
-// const { Op } = require("sequelize");
 //post user mood
 module.exports = function (app) {
   // create a new post
@@ -7,7 +6,6 @@ module.exports = function (app) {
     Post.create(req.body).then(function (dbPost) {
       res.json(dbPost);
     }).catch(err => {
-      // console.log(err.message);
       res.json({ message: err.message });
     });
   });
@@ -29,42 +27,18 @@ module.exports = function (app) {
         raw: true,
         nest: true
       }).then((dbPost) => {
-        // console.log("dbPost if no posts", dbPost.length);
         // this is your handlebars object for populating the posts with their title, body, mood and includes all the user data as well
         const hbsObj = {
           post: dbPost,
           name: dbPost[0].User.name
         };
-        // const postLength = dbPost.length;
-        // console.log("postLength", postLength);
-        // if (User === undefined) {
-        //   res.json({ message: "too bad no posts" });
-        //   // res.redirect(`/${req.params.username}/journal`);
-        // } else {
-        // }
+        // send hbsObj to the front end
         res.render("posts", hbsObj);
-        // console.log(hbsObj);
-        // console.log("dbPost", dbPost);
-        // res.json(hbsObj);
-        //send to the front end
-
-      }).catch(err => {
+      }).catch(() => {
+        // send user to a page with all their posts
         res.redirect(`/${req.params.username}/journal`);
       });
     }
-  });
-
-  app.delete("/api/posts/:id", function (req, res) {
-    Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbPost) {
-      res.json(dbPost);
-    }).catch(err => {
-      console.log(err.message);
-      res.json({ message: err.message });
-    });
   });
 
   //Keeley's
@@ -83,8 +57,6 @@ module.exports = function (app) {
           mood: dbMood
         };
         //send to the front end
-        // console.log(hbsObj);
-        // res.json(hbsObj);
         res.render("journal", hbsObj);
       }).catch(err => {
         res.json({ message: err.message });

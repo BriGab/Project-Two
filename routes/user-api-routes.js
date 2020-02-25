@@ -16,9 +16,8 @@ module.exports = (app) => {
     app.post("/api/users", function (req, res) {
         User.create(req.body).then(function (dbUser) {
             res.json(dbUser);
-        })
-        .catch(function(err){
-            res.sendStatus(500).json({ message: err.message })
-        })
+        }).catch(function (err) {
+            res.sendStatus(500).json({ message: err.message });
+        });
     });
 };
