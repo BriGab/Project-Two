@@ -4,6 +4,10 @@ CREATE DATABASE mojodb;
 
 USE mojodb;
 
+-- You don't need to run the tables in your MySQL workbench, the models do all the table building for you
+-- this is just a visual representation of how you would make these tables in MySQL workbench to help me structure
+-- the models correctly
+
 CREATE TABLE Posts (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(60),
@@ -17,7 +21,7 @@ CREATE TABLE Posts (
 
 CREATE TABLE Users (
     id INT NOT NULL AUTO_INCREMENT,
-    user_name VARCHAR(30) NOT NULL UNIQUE,
+    username VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(60) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
