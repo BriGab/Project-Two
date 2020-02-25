@@ -37,7 +37,7 @@ require("./routes/user-api-routes.js")(app);
 require("./routes/update-routes.js")(app);
 require("./routes/delete-routes")(app);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(`App listening on http://localhost:${PORT}`);
   });

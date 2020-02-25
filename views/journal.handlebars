@@ -1,4 +1,4 @@
-<nav>
+<nav class="grey darken-3">
     <div class="nav-wrapper">
         <ul id="nav-mobile" class="right">
             <li><a class="post-link" href="/{{username}}/posts">Posts</a></li>
@@ -24,7 +24,7 @@
                         <center>
                             <button data-authid="{{id}}" type="submit"
                                 class="waves-effect waves-light btn-large blue-grey darken-1 submit">Submit
-                                {{username}}</button>
+                            </button>
                         </center>
                         {{!-- Prompt btn --}}
 
@@ -36,27 +36,28 @@
 </div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
+<div id="modal1" class="modal col m6">
     <div class="modal-content">
         <h4>How are you feeling today?</h4>
         <p>Set your mood and choose a color theme</p>
         <div class="py3">
             <div class="input-field">
-                <select id="select-mood">
-                    <option value="default" disabled selected>Tell us how you're feeling</option>
-                    <option data-num="1" value="Happy">Happy</option>
-                    <option data-num="2" value="Sad">Sad</option>
-                    <option data-num="3" value="Angry">Angry</option>
-                </select>
-                <label>Mood</label>
+                <a class='dropdown-trigger grey darken-3 btn' id="select-mood" data-target='dropdown1'>Tell us how you are feeling <i class="material-icons">arrow_drop_down</i></a>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        {{#each mood}}
+                        <li data-num="{{id}}" value="{{mood}}">{{mood}}</li>
+                        {{/each}}
+                    </ul>
             </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <a href="#!" id="mood" class="modal-close waves-effect waves-green btn-flat">Submit</a>
-    </div>
+    <center class="modal-footer">
+        <a id="mood" class="modal-close waves-effect waves-green btn-flat white-text">Submit</a>
+    </center>
 </div>
 
 <footer class="center-align">
     <span class="white-text"><strong>Powered by Granium.js & Materialize</strong></span>   
 </footer>
+
+<canvas id="canvas-basic"></canvas>

@@ -1,18 +1,26 @@
 body {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
   color: #424242;
   background-color: #e8e8e8;
 }
 
-h1,h2,h3,h4 {
+h1, h2,h3,h4 {
   color: #424242;
 }
 
 p{
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
 }
 
-.cursive {
+footer {
+  background-color: #424242;
+}
+
+.modal, .modal-footer {
+  text-align: left;
+}
+
+h1, .cursive {
   font-family: 'Courgette', Georgia, 'Times New Roman', Times, serif ;
 }
 

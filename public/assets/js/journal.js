@@ -249,6 +249,9 @@ for (let i of textareas) {
     })(i);
 }
 
+// Dropdown selection
+$('.dropdown-trigger').dropdown();
+
 
 
 
