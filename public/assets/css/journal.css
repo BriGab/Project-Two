@@ -11,6 +11,9 @@ h1,h2,h3,h4 {
 p{
   font-family: 'Dosis', sans-serif;
 }
+.bolding {
+  font-weight: bold;
+}
 
 .cursive {
   font-family: 'Courgette', Georgia, 'Times New Roman', Times, serif ;
@@ -26,16 +29,11 @@ p{
   text-align:right;
 }
 
-.py3 {
-  padding: 10px 0;
-}
-
-
 /* Styles for each post */
 .grad-bg {
   width: 100%;
-  background-color: rgba(0,0,0,.3);
-  margin: 10px 0;
+  background-color: rgba(0,0,0,.1);
+  margin: 20px 0;
   padding: 5px 20px;
   /* border: 2px solid #424242; */
 }
