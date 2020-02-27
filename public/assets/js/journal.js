@@ -187,7 +187,7 @@ $("button.comments").on("click", function (event) {
         });
     } else {
         hiddenComms.hide("fast", "swing");
-        $("form.comments").hide("fast")
+        $("form.comments").hide("fast");
     }
 })
 
