@@ -19,8 +19,14 @@ $(document).ready(function () {
     }
     $.post("/api/users", signUp)
       .then(function () {
-        console.log(signUp);
-        window.location.replace("/");
+        
+        $.post("/api/login", signUp)
+        .then(function () {
+          window.location.replace(`/${userName}/posts`);
+        })
+          .catch(function (err) {
+            console.log(err)
+          })
       })
       .catch(function (err) {
         if (err) {
