@@ -133,5 +133,39 @@ module.exports = function (app) {
       res.json({ message: err.message });
     });
   });
+
+  // comment create and update
+  app.post("/api/comments", (req, res) => {
+    Comment.create(req.body).then(dbComm => {
+      // console.log("dbComm", dbComm);
+      res.json(dbComm);
+    }).catch(err => {
+      res.json({ message: err.message });
+    });
+  });
+
+  app.put("/api/comments/:id", (req, res) => {
+    Comment.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(dbComm => {
+      res.json(dbComm);
+    }).catch(err => {
+      res.json({ message: err.message });
+    });
+  });
+
+  app.delete("/api/comments/:id", (req, res) => {
+    Comment.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbComm => {
+      res.json(dbComm)
+    }).catch(err => {
+      res.json({ message: err.message });
+    });
+  });
 };
 
