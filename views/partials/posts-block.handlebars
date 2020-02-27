@@ -2,8 +2,8 @@
     <div data-post="{{id}}" class="grad-bg post-block">
         <h3>{{title}}</h3>
         <p class="post-body">{{body}}</p>
-        <p>mood: <span class="mood-span" style="color: {{color}};">{{mood}}</span></p>
-        <p class="timestamp">{{createdAt}}</p>
+        <p class="post-mood">mood: <span class="mood-span" style="color: {{color}};">{{mood}}</span></p>
+        <p class="post-timestamp">{{createdAt}}</p>
         <p style="visibility: hidden;">{{id}}</p>
         {{!-- {{log .}} --}}
       {{> comms-block}}

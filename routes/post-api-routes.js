@@ -33,7 +33,7 @@ module.exports = function (app) {
             const user = post.User
             const comments = post.Comments
 
-            console.log(comments)
+            // console.log(comments)
 
             let obj = {
               id: post.id,
