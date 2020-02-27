@@ -24,11 +24,38 @@ module.exports = function (app) {
           UserId: req.user.id
         },
         order: [['createdAt', 'DESC']],
-        // using raw and nest helped get the best looking data that was easiest to pick through and use for handlebars
-        raw: true,
-        nest: true
-      }).then((dbPost) => {
-        // this is your handlebars object for populating the posts with their title, body, mood and includes all the user data as well
+        }).then((dbPost) => {
+        // the data comes back yucky looking so we're looping through and creating new better data
+        let dataArr = [];
+        const postLoop = function (arr) {
+          for (const data of dbPost) {
+            const post = data.dataValues
+            const mood = post.Mood
+            const user = post.User
+            const comments = post.Comments
+            
+            let obj = {
+              id: post.id,
+              title: post.title,
+              body: post.body,
+              createdAt: post.createdAt,
+              updatedAt: post.updatedAt,
+              moodId: mood.id,
+              mood: mood.mood,
+              color: mood.color,
+              userId: user.id,
+              username: user.username,
+              name: user.name,
+              // this was a pain in my ass to figure out
+              comments: comments
+            }
+            arr.push(obj);
+          }
+            return arr;
+        }
+
+        const dataArray = postLoop(dataArr);
+
         const hbsObj = {
           post: dbPost,
           name: dbPost[0].User.name
