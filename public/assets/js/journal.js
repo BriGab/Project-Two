@@ -1,11 +1,13 @@
-$('.modal').modal();
-$('select').formSelect();
-$('#modal1').modal('open');
+/* eslint-disable no-use-before-define */
+$(".modal").modal();
+$("select").formSelect();
+$("#modal1").modal("open");
 
 //Page variables
-const titleInput = $("#title")
+const titleInput = $("#title");
 const bodyInput = $("#body");
 const authId = $(".submit").data("authid");
+// eslint-disable-next-line no-unused-vars
 let mood;
 let moodnum;
 
@@ -16,7 +18,7 @@ $("#mood").on("click", function (event) {
     moodnum = $("#select-mood").find(":selected").data("num");
     // console.log(mood);
     // console.log(moodnum);
-    $('#modal1').modal('close');
+    $("#modal1").modal("close");
 
 });
 
@@ -51,7 +53,7 @@ function handleFormSubmit(event) {
 function submitPost(post) {
     $.post("/api/posts", post, function () {
         $.get("/api/user_data").then(function (data) {
-            window.location.replace(`/${data.username}/posts`)
+            window.location.replace(`/${data.username}/posts`);
         });
     });
 }
@@ -61,7 +63,7 @@ function submitPost(post) {
 $(".post-link").on("click", function (event) {
     event.preventDefault();
     $.get("/api/user_data").then(function (data) {
-        window.location.replace(`/${data.username}/posts`)
+        window.location.replace(`/${data.username}/posts`);
     });
 });
 
@@ -72,7 +74,7 @@ $(".journal-link").on("click", function (event) {
     event.preventDefault();
     $.get("/api/user_data").then(function (data) {
         console.log(data.username);
-        window.location.replace(`/${data.username}/journal`)
+        window.location.replace(`/${data.username}/journal`);
     });
 });
 
@@ -99,12 +101,12 @@ const handlePostView = function () {
         $postDate.val(data.CreatedAt);
         console.log(data.Mood.mood);
 
-        //Added to trigger gradient.js 
+        //Added to trigger gradient.js
         gradientSelection(data.Mood.mood);
 
         //Set the id for the buttons
-        $('#saving').attr("data-postid", data.id);
-        $('#deleting').attr("data-postid", data.id);
+        $("#saving").attr("data-postid", data.id);
+        $("#deleting").attr("data-postid", data.id);
         // var testing = $('#deleting').data("postid");
         // console.log("PostId: ", testing);
 
@@ -126,7 +128,7 @@ const handlePostView = function () {
             // console.log(display);
             // $("#select-mood").val(data.Mood.id).change();
         }
-        $('#modal3').modal('open');
+        $("#modal3").modal("open");
     });
 
 };
@@ -135,13 +137,13 @@ $postList.on("click", ".post-list", handlePostView);
 
 $("#deleting").on("click", function () {
     event.preventDefault();
-    var a = $('#deleting').data('postid');
+    var a = $("#deleting").data("postid");
     console.log("post id: ", a);
 
     $.ajax({
         url: "/api/posts/" + a,
-        method: 'DELETE',
-        success: function (response) {
+        method: "DELETE",
+        success: function () {
             // console.log(response);
             // $('#modal3').modal('close');
             window.location.reload();
@@ -153,7 +155,7 @@ $("#deleting").on("click", function () {
 $("#saving").on("click", function () {
     event.preventDefault();
     console.log("clicked");
-    var a = $('#saving').data('postid');
+    var a = $("#saving").data("postid");
     console.log("Post Id:", a);
     console.log("PostText Object:", $postText);
     var postText = $postText.val();
@@ -172,7 +174,7 @@ $("#saving").on("click", function () {
 
     $.ajax({
         url: "/api/posts/" + a,
-        method: 'PUT',
+        method: "PUT",
         data: newPost,
         success: function (response) {
             console.log(response);
@@ -184,13 +186,13 @@ $("#saving").on("click", function () {
 
 
 //Js to make textareas exapndable -- Targets all textareas with class "txta"
-let textareas = document.querySelectorAll('.txta'),
-    hiddenDiv = document.createElement('div'),
+let textareas = document.querySelectorAll(".txta"),
+    hiddenDiv = document.createElement("div"),
     content = null;
 
 // Adds a class to all textareas
 for (let j of textareas) {
-    j.classList.add('txtstuff');
+    j.classList.add("txtstuff");
 }
 
 // Build the hidden div's attributes
@@ -200,29 +202,29 @@ for (let j of textareas) {
 
 // Add the "txta" styles, which are common to both textarea and hiddendiv
 // If you want, you can remove those from CSS and add them via JS
-hiddenDiv.classList.add('txta');
+hiddenDiv.classList.add("txta");
 
 // Add the styles for the hidden div
 // These can be in the CSS, just remove these three lines and uncomment the CSS
-hiddenDiv.style.display = 'none';
-hiddenDiv.style.whiteSpace = 'pre-wrap';
-hiddenDiv.style.wordWrap = 'break-word';
+hiddenDiv.style.display = "none";
+hiddenDiv.style.whiteSpace = "pre-wrap";
+hiddenDiv.style.wordWrap = "break-word";
 
 // Loop through all the textareas and add the event listener
 for (let i of textareas) {
     (function (i) {
         // Note: Use 'keyup' instead of 'input'
         // if you want older IE support
-        i.addEventListener('input', function () {
+        i.addEventListener("input", function () {
 
             // Append hiddendiv to parent of textarea, so the size is correct
             i.parentNode.appendChild(hiddenDiv);
 
             // Remove this if you want the user to be able to resize it in modern browsers
-            i.style.resize = 'none';
+            i.style.resize = "none";
 
             // This removes scrollbars
-            i.style.overflow = 'hidden';
+            i.style.overflow = "hidden";
 
             // Every input/change, grab the content
             content = i.value;
@@ -230,21 +232,21 @@ for (let i of textareas) {
             // Add the same content to the hidden div
 
             // This is for old IE
-            content = content.replace(/\n/g, '<br>');
+            content = content.replace(/\n/g, "<br>");
 
             // The <br ..> part is for old IE
             // This also fixes the jumpy way the textarea grows if line-height isn't included
-            hiddenDiv.innerHTML = content + '<br style="line-height: 3px;">';
+            hiddenDiv.innerHTML = content + "<br style=\"line-height: 3px;\">";
 
             // Briefly make the hidden div block but invisible
             // This is in order to read the height
-            hiddenDiv.style.visibility = 'hidden';
-            hiddenDiv.style.display = 'block';
-            i.style.height = hiddenDiv.offsetHeight + 'px';
+            hiddenDiv.style.visibility = "hidden";
+            hiddenDiv.style.display = "block";
+            i.style.height = hiddenDiv.offsetHeight + "px";
 
             // Make the hidden div display:none again
-            hiddenDiv.style.visibility = 'visible';
-            hiddenDiv.style.display = 'none';
+            hiddenDiv.style.visibility = "visible";
+            hiddenDiv.style.display = "none";
         });
     })(i);
 }

@@ -15,6 +15,9 @@ p{
 footer {
   background-color: #424242;
 }
+.bolding {
+  font-weight: bold;
+}
 
 .modal, .modal-footer {
   text-align: left;
@@ -33,11 +36,6 @@ h1, .cursive {
   color: #424242;
   text-align:right;
 }
-
-.py3 {
-  padding: 10px 0;
-}
-
 
 /* Styles for each post */
 .grad-bg {

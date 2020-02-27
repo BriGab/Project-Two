@@ -14,7 +14,7 @@ module.exports = function(app) {
       res.json(dbPost);
     })
     .catch(function(err){
-      res.sendStatus(500).send(err)
+      res.sendStatus(500).send(err);
     });
   });
 
@@ -30,7 +30,7 @@ module.exports = function(app) {
       res.json(dbUser);
     })
     .catch(function(err){
-      res.sendStatus(500).send(err)
+      res.sendStatus(500).send(err);
     });
   });
 
@@ -47,7 +47,7 @@ module.exports = function(app) {
       res.json(dbMood);
     })
     .catch(function(err){
-      res.sendStatus(500).send(err)
+      res.sendStatus(500).send(err);
     });
   });
 
