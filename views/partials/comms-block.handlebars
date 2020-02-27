@@ -5,10 +5,10 @@
         <div class="hidden-comms {{id}}" style="display: none;">
             <ul>
                 {{#each comments}}
-                {{log dataValues}}
-                <li>{{dataValues.id}}</li>
-                <li>{{dataValues.body}}</li>
-                <li>{{dataValues.updatedAt}}</li>
+                {{!-- {{log dataValues}} --}}
+                <li style="visibility: hidden;" class="{{dataValues.id}}">{{dataValues.id}}</li>
+                <li class="comm-body">{{dataValues.body}}</li>
+                <li class="comm-timestamp">{{dataValues.updatedAt}}</li>
                 {{/each}}
             </ul>
             <form class="comments" style="display: none;">
