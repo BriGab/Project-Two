@@ -14,7 +14,7 @@ $(document).ready(function(){
         $.post("api/login", signIn)
             .then(function () {
                 console.log(signIn);
-                window.location.replace(`/${user}/posts`);
+                window.location.replace(`/${user}/journal`);
             })
             .catch(function (err) {
                 if (err.status = 401) {
