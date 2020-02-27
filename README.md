@@ -8,9 +8,9 @@ MoJo incorporates mood influenced backgrounds and optional prompts to ignite a u
 
 ## How to use
 
-Once securely logged users have an opportunity to pick current mood and begin a journal session. The background color, brought in using Granim.js will help create an environment matching a users mood. For example a sad mood would bring in colors that represent and inspire that emotion, shades of blue. At that point a user can begin their flow of free writing, with an option of recieving a prompt for an extra spark to start. 
+Once securely logged in users have an opportunity to pick current mood and begin a journal session. The background color, brought in using Granim.js will help create an environment matching a users mood. For example a sad mood would bring in colors that represent and inspire that emotion. At that point a user can begin their flow of free writing, with an option of recieving a prompt for an extra spark to start.
 
-Journal entries are saved for a user to view later on, each entry storing the mood selected via background color. This allows for reflection on past emotional states over time.
+Journal entries are saved for a user to view and edit later. The background shown while the journal post was written will come up when a user clicks on a past post. Users will also have the ability to go back and add comments on their previous posts allowing for deeper reflection. 
 
 ## Motivation
 Coming together for project #2 we decided very quickly on running with this concept. As sort of a new age mood ring that challenges users to stop and take the time to debrief in the midst of our fast paced world it's something we all saw as being genuinely useful.
@@ -26,7 +26,7 @@ Coming together for project #2 we decided very quickly on running with this conc
 * Handlebars
 * Materialize
 
-Granim.js was our choice for new technology to incoporate in this project and is a huge part of the concept. (Expand on challenges here). Along with Granim.js we also used an API called ineedaprompt to bring in an optional prompt. 
+Granim.js was our choice for new technology to incoporate in this project and is a huge part of the concept. A challenge that came along with Granim.js was not having the creative flexibility desired. Along with Granim.js we also used an API called ineedaprompt to bring in an optional prompt. 
 
 ## Credits 
 
