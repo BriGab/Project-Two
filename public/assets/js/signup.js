@@ -19,14 +19,8 @@ $(document).ready(function () {
     }
     $.post("/api/users", signUp)
       .then(function () {
-        
-        $.post("/api/login", signUp)
-        .then(function () {
-          window.location.replace(`/${userName}/posts`);
-        })
-          .catch(function (err) {
-            console.log(err)
-          })
+        console.log(signUp);
+        window.location.replace("/");
       })
       .catch(function (err) {
         if (err) {

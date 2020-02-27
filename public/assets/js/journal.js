@@ -133,7 +133,92 @@ const handlePostView = function () {
 
 };
 
-$postList.on("click", ".post-list", handlePostView);
+// $postList.on("click", ".post-list", handlePostView);
+
+// cindy's edit method
+$(".edit").on("click", function (event) {
+    event.stopPropagation();
+    console.log("data-id", $(this).data("id"));
+    const id = $(this).data("id");
+
+    $.get(`/api/posts/${id}`).then(function (data) {
+        console.log(data);
+        $postTitle.text(data.title);
+        $postText.val(data.body);
+        $postDate.val(data.CreatedAt);
+        console.log(data.Mood.mood);
+
+        //Added to trigger gradient.js
+        gradientSelection(data.Mood.mood);
+
+        //Set the id for the buttons
+        $("#saving").attr("data-postid", data.id);
+        $("#deleting").attr("data-postid", data.id);
+
+        //Saving for added functionality later
+        if (data.Mood) {
+            console.log("Mood Id: ", data.Mood.id);
+        }
+        $("#modal3").modal("open");
+    });
+});
+
+// cindy's comment stuff
+$("button.comments").on("click", function (event) {
+    event.stopPropagation();
+    console.log("data-id", $(this).data("id"));
+
+    const dataId = $(this).data("id");
+    // console.log("hit");
+
+    const idNum = function (id) {
+        return id;
+    };
+    const targetId = idNum(dataId)
+    // console.log("trying to return data id as num", targetId);
+
+    const hiddenComms = $(`.${targetId}`);
+    // console.log("hiddeComms", hiddenComms);
+
+    if (hiddenComms.attr("style") === "display: none;") {
+        hiddenComms.show("slow", "linear", function () {
+            $(".comments").show("slow")
+        });
+    } else {
+        hiddenComms.hide("fast", "swing");
+        $("form.comments").hide("fast")
+    }
+})
+
+$(".new-comm").on("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log($(this).data("id"));
+
+    // console.log($(".comm-text").val());
+    const dataId = $(this).data("id");
+
+    const idNum = function (id) {
+        return id;
+    };
+
+    const id = idNum(dataId);
+    console.log(id)
+
+    const commVal = $(`.comm-text.${id}`).val()
+    console.log(commVal);
+    const comment = {
+        body: commVal,
+        PostId: id
+    };
+
+    console.log(comment);
+    
+    $.post("/api/comments", comment).then(function (data) {
+        console.log(data);
+        window.location.reload();
+    })
+})
 
 $("#deleting").on("click", function () {
     event.preventDefault();
@@ -253,7 +338,6 @@ for (let i of textareas) {
 
 // Dropdown selection
 $('.dropdown-trigger').dropdown();
-
 
 
 

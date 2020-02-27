@@ -15,9 +15,6 @@ p{
 footer {
   background-color: #424242;
 }
-.bolding {
-  font-weight: bold;
-}
 
 .modal, .modal-footer {
   text-align: left;
@@ -36,6 +33,11 @@ h1, .cursive {
   color: #424242;
   text-align:right;
 }
+
+.py3 {
+  padding: 10px 0;
+}
+
 
 /* Styles for each post */
 .grad-bg {
@@ -149,6 +151,51 @@ h1, .cursive {
   font-size: 1.5em;
   text-align: center;
   }
+
+/* cindy's comment styles */
+
+/* .relative {
+  position: relative;
+} */
+
+#post-comms {
+  /* position: absolute;
+  right: 0px;
+  bottom: -20px; */
+  margin: 0 0 0 10px;
+}
+
+.transparent {
+  background: transparent;
+  border: none;
+  padding: 3px;
+  text-shadow: 2px 2px 2px #000;
+  float: right;
+}
+
+/* .nice-comms {
+  color: #808080;
+  border: 1px solid #fff;
+} */
+
+.comments textarea {
+  border: 1px solid #000;
+  font-size: 8pt;
+  resize: none;
+}
+
+.comments label {
+  font-size: 12pt;
+  color: #000;
+}
+
+.material-icons.md-light { 
+  color: rgba(255, 255, 255, 1); 
+}
+
+.transparent:hover {
+  color: rgb(87, 87, 87, 1);
+}
 
 body {
   display: flex;

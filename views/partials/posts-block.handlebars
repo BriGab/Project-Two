@@ -1,6 +1,11 @@
 <li class="post-list" data-num="{{id}}">
-    <div class="card-panel grad-bg">
+    <div data-post="{{id}}" class="grad-bg relative">
         <h3>{{title}}</h3>
-        <p class="bolding">Mood: {{Mood.mood}}</p>
+        <p>{{body}}</p>
+        <p style="color: {{color}};">mood: {{mood}}</p>
+        <p>{{createdAt}}</p>
+        <p style="visibility: hidden;">{{id}}</p>
+        {{!-- {{log .}} --}}
+      {{> comms-block}}
     </div>
 </li>
