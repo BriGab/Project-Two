@@ -11,9 +11,6 @@ h1,h2,h3,h4 {
 p{
   font-family: 'Dosis', sans-serif;
 }
-.bolding {
-  font-weight: bold;
-}
 
 .cursive {
   font-family: 'Courgette', Georgia, 'Times New Roman', Times, serif ;
@@ -29,11 +26,16 @@ p{
   text-align:right;
 }
 
+.py3 {
+  padding: 10px 0;
+}
+
+
 /* Styles for each post */
 .grad-bg {
   width: 100%;
-  background-color: rgba(0,0,0,.1);
-  margin: 20px 0;
+  background-color: rgba(0,0,0,.3);
+  margin: 10px 0;
   padding: 5px 20px;
   /* border: 2px solid #424242; */
 }
@@ -140,3 +142,48 @@ p{
   font-size: 1.5em;
   text-align: center;
   }
+
+/* cindy's comment styles */
+
+/* .relative {
+  position: relative;
+} */
+
+#post-comms {
+  /* position: absolute;
+  right: 0px;
+  bottom: -20px; */
+  margin: 0 0 0 10px;
+}
+
+.transparent {
+  background: transparent;
+  border: none;
+  padding: 3px;
+  text-shadow: 2px 2px 2px #000;
+  float: right;
+}
+
+/* .nice-comms {
+  color: #808080;
+  border: 1px solid #fff;
+} */
+
+.comments textarea {
+  border: 1px solid #000;
+  font-size: 8pt;
+  resize: none;
+}
+
+.comments label {
+  font-size: 12pt;
+  color: #000;
+}
+
+.material-icons.md-light { 
+  color: rgba(255, 255, 255, 1); 
+}
+
+.transparent:hover {
+  color: rgb(87, 87, 87, 1);
+}

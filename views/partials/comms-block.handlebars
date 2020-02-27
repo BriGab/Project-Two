@@ -1,0 +1,25 @@
+<div id="post-comms" class="row">
+    <div class="col s12">
+        <button data-id="{{id}}" class="edit small material-icons md-light transparent">create</button>
+        <button data-id="{{id}}" class="comments small material-icons md-light transparent">comment</button>
+        <div class="hidden-comms {{id}}" style="display: none;">
+            <ul>
+                {{#each comments}}
+                {{!-- {{log dataValues}} --}}
+                <li>{{dataValues.id}}</li>
+                <li>{{dataValues.body}}</li>
+                <li>{{dataValues.updatedAt}}</li>
+                {{/each}}
+            </ul>
+            <form class="comments" style="display: none;">
+                <div>
+                    <label for="comment">Got a comment?</label>
+                    <textarea class="comm-text {{id}}" name="comment" placeholder="Your comments"></textarea>
+                </div>
+                <div>
+                    <button class="new-comm transparent material-icons md-light" data-id="{{id}}">save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
