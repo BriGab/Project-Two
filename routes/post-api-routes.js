@@ -1,4 +1,4 @@
-const { User, Post, Mood } = require("../models");
+const { User, Post, Mood, Comment } = require("../models");
 //post user mood
 module.exports = function (app) {
   // create a new post
@@ -17,14 +17,13 @@ module.exports = function (app) {
       res.sendStatus(403).json({ message: "invalid user" }).redirect("/");
     } else {
       // if there IS req.user data we use that to search for the user's posts by their user id and include the Mood table to also grab mood data for each post
-      // console.log("req.user", req.user);
       Post.findAll({
-        include: [User, Mood],
+        include: [User, Mood, Comment],
         where: {
-          UserId: req.user.id
+          UserId: req.user.id,
         },
-        order: [['createdAt', 'DESC']],
-        }).then((dbPost) => {
+        order: [['createdAt', 'DESC']]
+      }).then((dbPost) => {
         // the data comes back yucky looking so we're looping through and creating new better data
         let dataArr = [];
         const postLoop = function (arr) {
@@ -33,7 +32,9 @@ module.exports = function (app) {
             const mood = post.Mood
             const user = post.User
             const comments = post.Comments
-            
+
+            console.log(comments)
+
             let obj = {
               id: post.id,
               title: post.title,
@@ -51,20 +52,21 @@ module.exports = function (app) {
             }
             arr.push(obj);
           }
-            return arr;
+          return arr;
         }
 
         const dataArray = postLoop(dataArr);
 
         const hbsObj = {
-          post: dbPost,
-          name: dbPost[0].User.name
-        };
-        // send hbsObj to the front end
-        res.render("posts", hbsObj);
-      }).catch(() => {
+          post: dataArray,
+          name: dataArray[0].name,
+        }
+
+        res.render("posts", hbsObj)
+      }).catch((err) => {
         // send user to a page with all their posts
-        res.redirect(`/${req.params.username}/journal`);
+        console.log(err)
+        res.json(err);
       });
     }
   });

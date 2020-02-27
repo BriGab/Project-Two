@@ -1,9 +1,9 @@
 <li class="post-list" data-num="{{id}}">
     <div data-post="{{id}}" class="grad-bg post-block">
         <h3>{{title}}</h3>
-        <p>{{body}}</p>
+        <p class="post-body">{{body}}</p>
         <p>mood: <span class="mood-span" style="color: {{color}};">{{mood}}</span></p>
-        <p>{{createdAt}}</p>
+        <p class="timestamp">{{createdAt}}</p>
         <p style="visibility: hidden;">{{id}}</p>
         {{!-- {{log .}} --}}
       {{> comms-block}}
