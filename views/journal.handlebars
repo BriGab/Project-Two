@@ -7,54 +7,58 @@
     </div>
 </nav>
 
-<div class="row">
-    <div class="col m12">
-        <div class="card-panel">            
-            {{!-- Hidden Prompt Div --}}
-
-            <form id="journal">
-                <div class="form-group">
-                    {{!-- Journal Title Area --}}
-                    <textarea style="border:none" placeholder="Title" class="form-control txta" id="title"></textarea>
-                    {{!-- Journal Content Area --}}
-                    <textarea style="border:none" placeholder="Write something here..." class="form-control txta"
-                        rows="20" id="body"></textarea>
-                    {{!-- Journal Save Btn --}}
-                    <div class="row">
-                        <center>
-                            <button data-authid="{{id}}" type="submit"
-                                class="waves-effect waves-light btn-large blue-grey darken-1 submit">Submit
-                            </button>
-                        </center>
-                        {{!-- Prompt btn --}}
-
-                    </div>
+<main class="container">
+    <div class="row center-align">
+        <div class="col m12">
+            <div class="card-panel">            
+                {{!-- Hidden Prompt Div --}}
+                {{!-- button and div for prompt --}}
+                <div class ="menu" align = "center">
+                    <button id="submit" class="waves-effect waves-light btn grey darken-3 submit">Need a prompt?</button>
+                    <div id="box"></div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal col m6">
-    <div class="modal-content">
-        <h4>How are you feeling today?</h4>
-        <p>Set your mood and choose a color theme</p>
-        <div class="py3">
-            <div class="input-field">
-                <a class='dropdown-trigger grey darken-3 btn' id="select-mood" data-target='dropdown1'>Tell us how you are feeling <i class="material-icons">arrow_drop_down</i></a>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        {{#each mood}}
-                        <li data-num="{{id}}" value="{{mood}}">{{mood}}</li>
-                        {{/each}}
-                    </ul>
+                <form id="journal">
+                    <div class="form-group">
+                        {{!-- Journal Title Area --}}
+                        <textarea style="border:none" placeholder="Title" class="form-control txta" id="title"></textarea>
+                        {{!-- Journal Content Area --}}
+                        <textarea style="border:none" placeholder="Write something here..." class="form-control txta"
+                            rows="20" id="body"></textarea>
+                        {{!-- Journal Save Btn --}}
+                        <div class="row">
+                            <center>
+                                <button data-authid="{{id}}" type="submit" 
+                                    class="waves-effect waves-light btn-large grey darken-3 submit">Save
+                                </button>
+                            </center>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <center class="modal-footer">
-        <a id="mood" class="modal-close waves-effect waves-green btn-flat white-text">Submit</a>
-    </center>
-</div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal col m6">
+        <div class="modal-content">
+            <h4>How are you feeling today?</h4>
+            <p>Set your mood and choose a color theme</p>
+            <div class="py3">
+                <div class="input-field">
+                    <a class='dropdown-trigger grey darken-3 btn' id="select-mood" data-target='dropdown1'>Tell us how you are feeling <i class="material-icons">arrow_drop_down</i></a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            {{#each mood}}
+                            <li data-num="{{id}}" value="{{mood}}">{{mood}}</li>
+                            {{/each}}
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <center class="modal-footer">
+            <a id="mood" class="modal-close waves-effect waves-green btn-flat white-text">Submit</a>
+        </center>
+    </div>
+</main>
 
 <footer class="center-align">
     <span class="white-text"><strong>Powered by Granium.js & Materialize</strong></span>   
