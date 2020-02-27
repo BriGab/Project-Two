@@ -23,6 +23,7 @@ module.exports = function (app) {
         where: {
           UserId: req.user.id
         },
+        order: [['createdAt', 'DESC']],
         // using raw and nest helped get the best looking data that was easiest to pick through and use for handlebars
         raw: true,
         nest: true
