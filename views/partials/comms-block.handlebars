@@ -3,7 +3,7 @@
         <button data-id="{{id}}" class="edit small material-icons md-light transparent">create</button>
         <button data-id="{{id}}" class="comments small material-icons md-light transparent">comment</button>
         <div class="hidden-comms {{id}}" style="display: none;">
-            <ul>
+            <ul class="relative">
                 {{#each comments}}
                 {{!-- {{log dataValues}} --}}
                 <li style="visibility: hidden;" class="{{dataValues.id}}">{{dataValues.id}}</li>

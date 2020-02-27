@@ -54,10 +54,12 @@ h1, .cursive {
   width: 100%;
   /* max-width: 500px; */
   min-height: 100px;
+  max-height: 400px;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  overflow: hidden;
+  overflow-y: auto !important;
   line-height: 1.4;
+  resize: none;
 }
 
 /*End Expandable Text Area */
@@ -152,11 +154,9 @@ h1, .cursive {
   text-align: center;
   }
 
-/* cindy's comment styles */
+  .txta 
 
-/* .relative {
-  position: relative;
-} */
+/* cindy's comment styles */
 
 #post-comms {
   /* position: absolute;
@@ -173,20 +173,37 @@ h1, .cursive {
   float: right;
 }
 
-/* .nice-comms {
-  color: #808080;
-  border: 1px solid #fff;
+/* .relative {
+  position: relative;
 } */
 
+.comm-timestamp,
+.post-timestamp,
+.post-mood {
+  font-size: x-small;
+  color: #868686;
+  /* position: absolute;
+  bottom: 10px; */
+}
+
+.post-timestamp {
+  position: absolute;
+}
+
 .comments textarea {
-  border: 1px solid #000;
+  border: 1px solid #a7a7a7;
   font-size: 8pt;
   resize: none;
+  color: #424242;
 }
 
 .comments label {
-  font-size: 12pt;
-  color: #000;
+  font-size: 10pt;
+  color: #424242;
+}
+
+form.comments {
+  padding-top: 10px;
 }
 
 .material-icons.md-light { 
@@ -209,8 +226,4 @@ main {
 
 nav {
   margin-bottom: 2%;
-}
-
-#box {
-  margin-top: 1%;
 }
