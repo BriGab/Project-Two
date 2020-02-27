@@ -27,9 +27,9 @@
                         {{!-- Journal Save Btn --}}
                         <div class="row">
                             <center>
-                                <button data-authid="{{id}}" type="submit" 
-                                    class="waves-effect waves-light btn-large grey darken-3 submit">Save
-                                </button>
+                        <button id="journal-save" data-authid="{{id}}" type="submit"
+                            class="waves-effect waves-light btn grey darken-3">SAVE
+                        </button>
                             </center>
                         </div>
                     </div>
@@ -45,17 +45,18 @@
             <p>Set your mood and choose a color theme</p>
             <div class="py3">
                 <div class="input-field">
-                    <a class='dropdown-trigger grey darken-3 btn' id="select-mood" data-target='dropdown1'>Tell us how you are feeling <i class="material-icons">arrow_drop_down</i></a>
-                        <ul id='dropdown1' class='dropdown-content'>
-                            {{#each mood}}
-                            <li data-num="{{id}}" value="{{mood}}">{{mood}}</li>
-                            {{/each}}
-                        </ul>
+                    {{!-- <a class='dropdown-trigger grey darken-3 btn' id="select-mood" data-target='dropdown1'>Tell us how you are feeling <i class="material-icons">arrow_drop_down</i></a> --}}
+                <select id="select-mood" style="overflow: hidden;">
+                    <option class='dropdown-trigger grey darken-3 btn' value="default" disabled selected>Tell us how you're feeling</option>
+                    {{#each mood}}
+                    <option data-num="{{id}}" value="{{mood}}">{{mood}}</option>
+                    {{/each}}
+                </select>
                 </div>
             </div>
         </div>
         <center class="modal-footer">
-            <a id="mood" class="modal-close waves-effect waves-green btn-flat white-text">Submit</a>
+            <button id="mood" class="modal-close waves-effect waves-green btn-flat white-text">Submit</button>
         </center>
     </div>
 </main>

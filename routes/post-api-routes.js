@@ -1,5 +1,4 @@
-const { User, Post, Mood, Comment } = require("../models");
-const { Op } = require("sequelize");
+const { User, Post, Mood } = require("../models");
 //post user mood
 module.exports = function (app) {
   // create a new post
@@ -18,55 +17,27 @@ module.exports = function (app) {
       res.sendStatus(403).json({ message: "invalid user" }).redirect("/");
     } else {
       // if there IS req.user data we use that to search for the user's posts by their user id and include the Mood table to also grab mood data for each post
+      // console.log("req.user", req.user);
       Post.findAll({
-        include: [User, Mood, Comment],
+        include: [User, Mood],
         where: {
           UserId: req.user.id
         },
         order: [['createdAt', 'DESC']],
-        }
-
+        // using raw and nest helped get the best looking data that was easiest to pick through and use for handlebars
+        raw: true,
+        nest: true
       }).then((dbPost) => {
-        // the data comes back yucky looking so we're looping through and creating new better data
-        let dataArr = [];
-        const postLoop = function (arr) {
-          for (const data of dbPost) {
-            const post = data.dataValues
-            const mood = post.Mood
-            const user = post.User
-            const comments = post.Comments
-            
-            let obj = {
-              id: post.id,
-              title: post.title,
-              body: post.body,
-              createdAt: post.createdAt,
-              updatedAt: post.updatedAt,
-              moodId: mood.id,
-              mood: mood.mood,
-              userId: user.id,
-              username: user.username,
-              name: user.name,
-              // this was a pain in my ass to figure out
-              comments: comments
-            }
-            arr.push(obj);
-          }
-            return arr;
-        }
-
-        const dataArray = postLoop(dataArr);
-
+        // this is your handlebars object for populating the posts with their title, body, mood and includes all the user data as well
         const hbsObj = {
-          post: dataArray,
-          name: dataArray[0].name,
-        }
-
-        res.render("posts", hbsObj)
-      }).catch((err) => {
+          post: dbPost,
+          name: dbPost[0].User.name
+        };
+        // send hbsObj to the front end
+        res.render("posts", hbsObj);
+      }).catch(() => {
         // send user to a page with all their posts
-        console.log(err)
-        res.json(err);
+        res.redirect(`/${req.params.username}/journal`);
       });
     }
   });
@@ -129,40 +100,6 @@ module.exports = function (app) {
   app.post("/api/moods", (req, res) => {
     Mood.create(req.body).then(dbMood => {
       res.json(dbMood);
-    }).catch(err => {
-      res.json({ message: err.message });
-    });
-  });
-
-  // comment create and update
-  app.post("/api/comments", (req, res) => {
-    Comment.create(req.body).then(dbComm => {
-      // console.log("dbComm", dbComm);
-      res.json(dbComm);
-    }).catch(err => {
-      res.json({ message: err.message });
-    });
-  });
-
-  app.put("/api/comments/:id", (req, res) => {
-    Comment.update(req.body, {
-      where: {
-        id: req.params.id
-      }
-    }).then(dbComm => {
-      res.json(dbComm);
-    }).catch(err => {
-      res.json({ message: err.message });
-    });
-  });
-
-  app.delete("/api/comments/:id", (req, res) => {
-    Comment.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(dbComm => {
-      res.json(dbComm)
     }).catch(err => {
       res.json({ message: err.message });
     });
