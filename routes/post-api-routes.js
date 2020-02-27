@@ -12,6 +12,7 @@ module.exports = function (app) {
 
   // get all posts by id of a logged in user
   app.get("/:username/posts", function (req, res) {
+    console.log("req.user", req.user)
     // checks to make sure there's req.user data from the login verification and if not sends a 403 forbidden
     if (!req.user) {
       res.sendStatus(403).json({ message: "invalid user" }).redirect("/");
@@ -24,49 +25,54 @@ module.exports = function (app) {
         },
         order: [['createdAt', 'DESC']]
       }).then((dbPost) => {
-        // the data comes back yucky looking so we're looping through and creating new better data
-        let dataArr = [];
-        const postLoop = function (arr) {
-          for (const data of dbPost) {
-            const post = data.dataValues
-            const mood = post.Mood
-            const user = post.User
-            const comments = post.Comments
+        console.log("dbPost if no posts looks like", dbPost)
 
-            // console.log(comments)
+        // if (dbPost === []) {
+        //   res.json({ message: "you have no posts" });
+        // } else {
+          // the data comes back yucky looking so we're looping through and creating new better data
+          let dataArr = [];
+          const postLoop = function (arr) {
+            for (const data of dbPost) {
+              const post = data.dataValues
+              const mood = post.Mood
+              const user = post.User
+              const comments = post.Comments
 
-            let obj = {
-              id: post.id,
-              title: post.title,
-              body: post.body,
-              createdAt: post.createdAt,
-              updatedAt: post.updatedAt,
-              moodId: mood.id,
-              mood: mood.mood,
-              color: mood.color,
-              userId: user.id,
-              username: user.username,
-              name: user.name,
-              // this was a pain in my ass to figure out
-              comments: comments
+              // console.log(comments)
+
+              let obj = {
+                id: post.id,
+                title: post.title,
+                body: post.body,
+                createdAt: post.createdAt,
+                updatedAt: post.updatedAt,
+                moodId: mood.id,
+                mood: mood.mood,
+                color: mood.color,
+                userId: user.id,
+                username: user.username,
+                name: user.name,
+                // this was a pain in my ass to figure out
+                comments: comments
+              }
+              arr.push(obj);
             }
-            arr.push(obj);
+            return arr;
           }
-          return arr;
-        }
 
-        const dataArray = postLoop(dataArr);
+          const dataArray = postLoop(dataArr);
 
-        const hbsObj = {
-          post: dataArray,
-          name: dataArray[0].name,
-        }
+          const hbsObj = {
+            post: dataArray,
+            name: dataArray[0].name,
+          }
 
-        res.render("posts", hbsObj)
+          res.render("posts", hbsObj)
+        // }
       }).catch((err) => {
-        // send user to a page with all their posts
         console.log(err)
-        res.json(err);
+        res.redirect(`/${req.user.username}/journal`)
       });
     }
   });
