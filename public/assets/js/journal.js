@@ -217,7 +217,18 @@ $(".new-comm").on("click", function (event) {
     $.post("/api/comments", comment).then(function (data) {
         console.log(data);
         window.location.reload();
-    })
+    });
+});
+
+$(".post-block").on("click", function () {
+    const moodChange = $(this).find(".mood-span")[0].innerText;
+
+    // console.log($(this).find(".mood-span")[0].innerText);
+
+    gradientSelection(moodChange);
+
+    // console.log($(this).find(".mood-span"));
+    // gradientSelection()
 })
 
 $("#deleting").on("click", function () {

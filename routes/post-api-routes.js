@@ -24,9 +24,7 @@ module.exports = function (app) {
           UserId: req.user.id
         },
         order: [['createdAt', 'DESC']],
-        }
-
-      }).then((dbPost) => {
+        }).then((dbPost) => {
         // the data comes back yucky looking so we're looping through and creating new better data
         let dataArr = [];
         const postLoop = function (arr) {
@@ -44,6 +42,7 @@ module.exports = function (app) {
               updatedAt: post.updatedAt,
               moodId: mood.id,
               mood: mood.mood,
+              color: mood.color,
               userId: user.id,
               username: user.username,
               name: user.name,

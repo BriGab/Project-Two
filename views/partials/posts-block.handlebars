@@ -1,8 +1,8 @@
 <li class="post-list" data-num="{{id}}">
-    <div data-post="{{id}}" class="grad-bg relative">
+    <div data-post="{{id}}" class="grad-bg post-block">
         <h3>{{title}}</h3>
         <p>{{body}}</p>
-        <p style="color: {{color}};">mood: {{mood}}</p>
+        <p>mood: <span class="mood-span" style="color: {{color}};">{{mood}}</span></p>
         <p>{{createdAt}}</p>
         <p style="visibility: hidden;">{{id}}</p>
         {{!-- {{log .}} --}}
