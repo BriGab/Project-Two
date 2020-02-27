@@ -6,7 +6,8 @@ $("#modal1").modal("open");
 //Page variables
 const titleInput = $("#title");
 const bodyInput = $("#body");
-const authId = $(".submit").data("authid");
+const authId = $("#journal-save").data("authid");
+// console.log(authId);
 // eslint-disable-next-line no-unused-vars
 let mood;
 let moodnum;
@@ -16,10 +17,9 @@ $("#mood").on("click", function (event) {
     event.preventDefault();
     mood = $("#select-mood").val();
     moodnum = $("#select-mood").find(":selected").data("num");
-    // console.log(mood);
-    // console.log(moodnum);
+    console.log(mood);
+    console.log(moodnum);
     $("#modal1").modal("close");
-
 });
 
 
@@ -29,6 +29,7 @@ $("#journal").on("submit", handleFormSubmit);
 // A function for handling what happens when the form to create a new post is submitted
 function handleFormSubmit(event) {
     event.preventDefault();
+    console.log(authId);
     // Don't submit empty posts
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
         return;
