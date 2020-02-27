@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Iveg0tal0velybunch0fc0c0nuts",
+    "password": "",
     "database": "mojodb",
     "host": "127.0.0.1",
     "dialect": "mysql",

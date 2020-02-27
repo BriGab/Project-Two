@@ -21,8 +21,11 @@ module.exports = function (app) {
       Post.findAll({
         include: [User, Mood, Comment],
         where: {
-            UserId: req.user.id,
+          UserId: req.user.id
+        },
+        order: [['createdAt', 'DESC']],
         }
+
       }).then((dbPost) => {
         // the data comes back yucky looking so we're looping through and creating new better data
         let dataArr = [];
