@@ -1,13 +1,17 @@
 {{#if post}}
 <div class="all-content">
-    <div class="menu" align="right">
-        <a class="journal-link" href="/">Journal</a>&nbsp;&nbsp;&nbsp;<a
-            href="/logout">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
+    <nav class="grey darken-3">
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right">
+                <li><a class="journal-link" href="/">Journal</a>&nbsp;&nbsp;&nbsp;</li>
+                <li><a href="/logout">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            </ul>
+        </div>
+    </nav>
     <div class="container rel-main mx-2">
         <div class="row">
             <div class="col s12">
-                <h1>{{name}}'s blog</h1>
+                <h1 class="center">{{name}}'s blog</h1>
                 <ul class="post-group">
                     {{#each post}}
                     {{> posts-block}}
@@ -28,8 +32,8 @@
         <div class="modal-footer">
             {{!-- <button id="saving" class="modal-close waves-effect waves-green btn-flat left">Save</button>
             <button id="deleting" class="modal-close waves-effect waves-green btn-flat right">Delete</button> --}}
-            <a id="saving" class="btn-floating yellow darken-1"><i class="material-icons">save</i></a>
-            <a id="deleting" class="btn-floating green"><i class="material-icons">delete</i></a>
+            <a id="saving" class="btn-floating grey darken-3"><i class="material-icons">save</i></a>
+            <a id="deleting" class="btn-floating grey darken-3"><i class="material-icons">delete</i></a>
         </div>
     </div>
     <canvas id="canvas-basic"></canvas>
