@@ -180,17 +180,41 @@ $("button.comments").on("click", function (event) {
     const targetId = idNum(dataId)
     // console.log("trying to return data id as num", targetId);
 
-    const hiddenComms = $(`.${targetId}`);
+    const target = $(`.${targetId}`)
+
+    const hiddenComms = target.children();
+
+    if (target.attr("style") === "display: none;") {
+        target.show("slow", () => {
+
+            hiddenComms.fadeIn("slow");
+        })
+    } else {
+        target.hide("slow", () => {
+            hiddenComms.fadeOut("fast");
+
+        })
+    }
+
+    // console.log("hiddenComms", hiddenComms)
+
+    // hiddenComms.show();
     // console.log("hiddeComms", hiddenComms);
 
-    if (hiddenComms.attr("style") === "display: none;") {
-        hiddenComms.show("slow", "linear", function () {
-            $(".comments").show("slow")
-        });
-    } else {
-        hiddenComms.hide("fast", "swing");
-        $("form.comments").hide("fast");
-    }
+    // if (hiddenComms.attr("style") === "display: none;") {
+    //     hiddenComms.show(500, () => {
+    //         $(`.comm-container`).fadeIn(550);
+
+    //     });
+    //         // function () {
+    //         // }
+    // } else {
+    //     hiddenComms.hide(500, () => {
+    //         $(`.comm-container`).fadeOut(400);
+    //     });
+    // }
+
+    // console.log(hiddenComms.attr("style"))
 })
 
 $(".new-comm").on("click", function (event) {
@@ -226,6 +250,21 @@ $(".new-comm").on("click", function (event) {
 $(".post-block").on("click", function () {
     const moodChange = $(this).find(".mood-span")[0].innerText;
     gradientSelection(moodChange);
+});
+
+$(".comm-del").on("click", function (event) {
+    const id = $(this).data("id");
+    // console.log("delete id:", id);
+
+    $.ajax({
+        url: `/api/comments/${id}`,
+        method: "DELETE"
+    }).then((data) => {
+        console.log("delete comment data", data);
+        window.location.reload();
+    }).catch(err => {
+        console.log(err);
+    });
 });
 // this ends cindy's stuff
 

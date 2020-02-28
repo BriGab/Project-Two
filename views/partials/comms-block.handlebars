@@ -2,31 +2,34 @@
     <div class="col s12">
         <div class="btns-holder">
             <div class="btns">
-                <button data-id="{{id}}" class="edit small material-icons md-light transp">create</button>
+                <button data-id="{{id}}" class="edit material-icons md-light transp float-right">create</button>
             </div>
             <div class="btns">
                 <span class="comm-count">{{commCount}}</span>
-                <button data-id="{{id}}" class="comments small material-icons md-light transp">comment</button>
+                <button data-id="{{id}}" class="comments material-icons md-light transp float-right">comment</button>
             </div>
         </div>
         <div class="hidden-comms {{id}}" style="display: none;">
+            <div class="comm-container">
             <ul class="relative">
                 {{#each comments}}
                 {{!-- {{log dataValues}} --}}
                 <li style="visibility: hidden;" class="{{dataValues.id}}">{{dataValues.id}}</li>
                 <li class="comm-body">{{dataValues.body}}</li>
-                <li class="comm-timestamp">{{dataValues.updatedAt}}</li>
+                <li class="comm-timestamp">{{dataValues.updatedAt}}<button style="font-size: 20px" class="comm-del material-icons md-light transp" data-id="{{dataValues.id}}">delete</button></li>
+                <li></li>
                 {{/each}}
             </ul>
-            <form class="comments" style="display: none;">
+            <form class="comments">
                 <div>
                     <label for="comment">Got a comment?</label>
                     <textarea class="comm-text {{id}}" name="comment" placeholder="Your comments"></textarea>
                 </div>
                 <div>
-                    <button class="new-comm transp material-icons md-light" data-id="{{id}}">save</button>
+                    <button class="new-comm transp material-icons md-light float-right" data-id="{{id}}">save</button>
                 </div>
             </form>
+            </div>
         </div>
     </div>
 </div>
