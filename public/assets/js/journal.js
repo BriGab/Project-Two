@@ -54,7 +54,7 @@ function handleFormSubmit(event) {
 function submitPost(post) {
     $.post("/api/posts", post, function () {
         $.get("/api/user_data").then(function (data) {
-            window.location.replace(`/${data.username}/posts`);
+            window.location.assign(`/${data.username}/posts`);
         });
     });
 }
@@ -64,7 +64,7 @@ function submitPost(post) {
 $(".post-link").on("click", function (event) {
     event.preventDefault();
     $.get("/api/user_data").then(function (data) {
-        window.location.replace(`/${data.username}/posts`);
+        window.location.assign(`/${data.username}/posts`);
     });
 });
 
@@ -241,7 +241,7 @@ $("#deleting").on("click", function () {
         url: "/api/posts/" + a,
         method: "DELETE",
         success: function () {
-            // console.log(response);
+            // console.log("delete response", response);
             // $('#modal3').modal('close');
             window.location.reload();
         }

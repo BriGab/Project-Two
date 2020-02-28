@@ -12,7 +12,7 @@ module.exports = function (app) {
 
   // get all posts by id of a logged in user
   app.get("/:username/posts", function (req, res) {
-    console.log("req.user", req.user)
+    // console.log("req.user", req.user)
     // checks to make sure there's req.user data from the login verification and if not sends a 403 forbidden
     if (!req.user) {
       res.sendStatus(403).json({ message: "invalid user" }).redirect("/");
@@ -23,13 +23,12 @@ module.exports = function (app) {
         where: {
           UserId: req.user.id,
         },
-        order: [['createdAt', 'DESC']]
+        order: [['createdAt', 'DESC']],
+        // offset: 5 * 1,
+        // limit: 1,
+        // subQuery: false,
       }).then((dbPost) => {
-        console.log("dbPost if no posts looks like", dbPost)
-
-        // if (dbPost === []) {
-        //   res.json({ message: "you have no posts" });
-        // } else {
+        // console.log("dbPost if no posts looks like", dbPost)
           // the data comes back yucky looking so we're looping through and creating new better data
           let dataArr = [];
           const postLoop = function (arr) {
@@ -69,7 +68,6 @@ module.exports = function (app) {
           }
 
           res.render("posts", hbsObj)
-        // }
       }).catch((err) => {
         console.log(err)
         res.redirect(`/${req.user.username}/journal`)

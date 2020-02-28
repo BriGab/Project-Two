@@ -22,7 +22,7 @@ $(document).ready(function () {
         
         $.post("/api/login", signUp)
         .then(function () {
-          window.location.replace(`/${userName}/journal`);
+          window.location.assign(`/${userName}/journal`);
         })
           .catch(function (err) {
             console.log(err)
