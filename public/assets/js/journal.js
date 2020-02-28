@@ -31,7 +31,9 @@ function handleFormSubmit(event) {
     event.preventDefault();
     console.log(authId);
     // Don't submit empty posts
-    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
+    if (!titleInput.val().trim() || !bodyInput.val().trim() || !moodnum || !authId) {
+        alert("You're missing something...");
+        $("#modal1").modal("open");
         return;
     }
     // Constructing a newPost object to hand to the database
