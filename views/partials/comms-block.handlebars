@@ -1,7 +1,14 @@
 <div id="post-comms" class="row">
     <div class="col s12">
-        <button data-id="{{id}}" class="edit small material-icons md-light transparent">create</button>
-        <button data-id="{{id}}" class="comments small material-icons md-light transparent">comment</button>
+        <div class="btns-holder">
+            <div class="btns">
+                <button data-id="{{id}}" class="edit small material-icons md-light transp">create</button>
+            </div>
+            <div class="btns">
+                <span class="comm-count">{{commCount}}</span>
+                <button data-id="{{id}}" class="comments small material-icons md-light transp">comment</button>
+            </div>
+        </div>
         <div class="hidden-comms {{id}}" style="display: none;">
             <ul class="relative">
                 {{#each comments}}
@@ -17,7 +24,7 @@
                     <textarea class="comm-text {{id}}" name="comment" placeholder="Your comments"></textarea>
                 </div>
                 <div>
-                    <button class="new-comm transparent material-icons md-light" data-id="{{id}}">save</button>
+                    <button class="new-comm transp material-icons md-light" data-id="{{id}}">save</button>
                 </div>
             </form>
         </div>

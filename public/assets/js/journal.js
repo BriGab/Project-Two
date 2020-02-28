@@ -196,7 +196,7 @@ $("button.comments").on("click", function (event) {
 $(".new-comm").on("click", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log($(this).data("id"));
+    // console.log($(this).data("id"));
 
     // console.log($(".comm-text").val());
     const dataId = $(this).data("id");
@@ -209,13 +209,13 @@ $(".new-comm").on("click", function (event) {
     console.log(id)
 
     const commVal = $(`.comm-text.${id}`).val()
-    console.log(commVal);
+    // console.log(commVal);
     const comment = {
         body: commVal,
         PostId: id
     };
 
-    console.log(comment);
+    // console.log(comment);
     
     $.post("/api/comments", comment).then(function (data) {
         console.log(data);
@@ -225,14 +225,9 @@ $(".new-comm").on("click", function (event) {
 
 $(".post-block").on("click", function () {
     const moodChange = $(this).find(".mood-span")[0].innerText;
-
-    // console.log($(this).find(".mood-span")[0].innerText);
-
     gradientSelection(moodChange);
-
-    // console.log($(this).find(".mood-span"));
-    // gradientSelection()
-})
+});
+// this ends cindy's stuff
 
 $("#deleting").on("click", function () {
     event.preventDefault();

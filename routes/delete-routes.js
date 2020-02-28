@@ -38,20 +38,8 @@ module.exports = function (app) {
             }
         }).then(function (dbPost) {
             res.json(dbPost);
-        // }).then(() => {
-        //     Comment.destroy({
-        //         where: {
-        //             PostId: null
-        //         }
-        //     }).then(dbComment => {
-        //         console.log(dbComment);
-        //     }).catch(err => {
-        //         console.log(err);
-        //         // res.json(err);
-        //     });
         }).catch(err => {
             console.log(err);
-            // res.json(err);
         });
     });
 };

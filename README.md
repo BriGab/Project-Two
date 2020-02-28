@@ -1,5 +1,7 @@
 ![gradientBlue](public/assets/images/gradientblue.JPG)
 
+[Check out MoJo on Heroku!](https://immense-retreat-62376.herokuapp.com/)
+
 # MoJo
 
 A mood based mediation journal designed to provide atmospheric inspiration for users to refresh their minds through free flow writing and reflection.
