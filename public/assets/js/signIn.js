@@ -14,7 +14,8 @@ $(document).ready(function(){
         $.post("api/login", signIn)
             .then(function () {
                 console.log(signIn);
-                window.location.replace(`/${user}/posts`);
+                window.location.assign(`/${user}/posts`);
+                // history.pushState("/");
             })
             .catch(function (err) {
                 if (err.status = 401) {
