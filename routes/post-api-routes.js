@@ -106,7 +106,7 @@ module.exports = function (app) {
     Post.findOne({
       where: {
         id: req.params.id
-      }, include: [User, Mood]
+      }, include: [User, Mood, Comment]
     }).then(function (dbPost) {
       res.json(dbPost);
     });
@@ -159,18 +159,6 @@ module.exports = function (app) {
       }
     }).then(dbComm => {
       res.json(dbComm);
-    }).catch(err => {
-      res.json({ message: err.message });
-    });
-  });
-
-  app.delete("/api/comments/:id", (req, res) => {
-    Comment.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(dbComm => {
-      res.json(dbComm)
     }).catch(err => {
       res.json({ message: err.message });
     });

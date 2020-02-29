@@ -195,26 +195,6 @@ $("button.comments").on("click", function (event) {
 
         })
     }
-
-    // console.log("hiddenComms", hiddenComms)
-
-    // hiddenComms.show();
-    // console.log("hiddeComms", hiddenComms);
-
-    // if (hiddenComms.attr("style") === "display: none;") {
-    //     hiddenComms.show(500, () => {
-    //         $(`.comm-container`).fadeIn(550);
-
-    //     });
-    //         // function () {
-    //         // }
-    // } else {
-    //     hiddenComms.hide(500, () => {
-    //         $(`.comm-container`).fadeOut(400);
-    //     });
-    // }
-
-    // console.log(hiddenComms.attr("style"))
 })
 
 $(".new-comm").on("click", function (event) {
@@ -241,9 +221,18 @@ $(".new-comm").on("click", function (event) {
 
     // console.log(comment);
     
-    $.post("/api/comments", comment).then(function (data) {
-        console.log(data);
+    $.post("/api/comments", comment).then(function (comment) {
+        console.log("new comment data", comment);
         window.location.reload();
+        // $(`.comm-text.${id}`).val("");
+        // $(`.comments.comm-id-${id}`).before(`
+        //     <ul class="relative commid-${comment.id}">
+        //         <li style="visibility: hidden;" class="comm-id-${comment.id}">${comment.id}</li>
+        //         <li class="comm-body-${comment.id}">${comment.body}</li>
+        //     <li class="comm-timestamp-${comment.id}">${comment.createdAt}<button style="font-size: 20px" class="comm-del material-icons md-light transp" data-id='${comment.id}'>delete</button></li>
+        //     </ul>
+        // `)
+
     });
 });
 
@@ -254,16 +243,20 @@ $(".post-block").on("click", function () {
 
 $(".comm-del").on("click", function (event) {
     const id = $(this).data("id");
+
+    // const postId = $(this).parents(".post-block").data("post");
+    // console.log("this", $(this).parents(".post-block").data("post"));
     // console.log("delete id:", id);
 
     $.ajax({
         url: `/api/comments/${id}`,
         method: "DELETE"
-    }).then((data) => {
-        console.log("delete comment data", data);
-        window.location.reload();
-    }).catch(err => {
-        console.log(err);
+    }).then(() => {
+        const removeComm = $(`.commid-${id}`);
+
+        removeComm.remove();
+
+        // window.location.reload();
     });
 });
 // this ends cindy's stuff
@@ -278,8 +271,9 @@ $("#deleting").on("click", function () {
         method: "DELETE",
         success: function () {
             // console.log("delete response", response);
-            // $('#modal3').modal('close');
-            window.location.reload();
+            $('#modal3').modal('close');
+            // window.location.reload();
+            $(`.postid-${a}`).fadeOut();
         }
     });
 
@@ -386,9 +380,3 @@ for (let i of textareas) {
 
 // Dropdown selection
 $('.dropdown-trigger').dropdown();
-
-
-
-
-
-
