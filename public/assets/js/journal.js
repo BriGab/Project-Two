@@ -180,23 +180,47 @@ $("button.comments").on("click", function (event) {
     const targetId = idNum(dataId)
     // console.log("trying to return data id as num", targetId);
 
-    const hiddenComms = $(`.${targetId}`);
+    const target = $(`.${targetId}`)
+
+    const hiddenComms = target.children();
+
+    if (target.attr("style") === "display: none;") {
+        target.show("slow", () => {
+
+            hiddenComms.fadeIn("slow");
+        })
+    } else {
+        target.hide("slow", () => {
+            hiddenComms.fadeOut("fast");
+
+        })
+    }
+
+    // console.log("hiddenComms", hiddenComms)
+
+    // hiddenComms.show();
     // console.log("hiddeComms", hiddenComms);
 
-    if (hiddenComms.attr("style") === "display: none;") {
-        hiddenComms.show("slow", "linear", function () {
-            $(".comments").show("slow")
-        });
-    } else {
-        hiddenComms.hide("fast", "swing");
-        $("form.comments").hide("fast");
-    }
+    // if (hiddenComms.attr("style") === "display: none;") {
+    //     hiddenComms.show(500, () => {
+    //         $(`.comm-container`).fadeIn(550);
+
+    //     });
+    //         // function () {
+    //         // }
+    // } else {
+    //     hiddenComms.hide(500, () => {
+    //         $(`.comm-container`).fadeOut(400);
+    //     });
+    // }
+
+    // console.log(hiddenComms.attr("style"))
 })
 
 $(".new-comm").on("click", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log($(this).data("id"));
+    // console.log($(this).data("id"));
 
     // console.log($(".comm-text").val());
     const dataId = $(this).data("id");
@@ -209,13 +233,13 @@ $(".new-comm").on("click", function (event) {
     console.log(id)
 
     const commVal = $(`.comm-text.${id}`).val()
-    console.log(commVal);
+    // console.log(commVal);
     const comment = {
         body: commVal,
         PostId: id
     };
 
-    console.log(comment);
+    // console.log(comment);
     
     $.post("/api/comments", comment).then(function (data) {
         console.log(data);
@@ -225,14 +249,24 @@ $(".new-comm").on("click", function (event) {
 
 $(".post-block").on("click", function () {
     const moodChange = $(this).find(".mood-span")[0].innerText;
-
-    // console.log($(this).find(".mood-span")[0].innerText);
-
     gradientSelection(moodChange);
+});
 
-    // console.log($(this).find(".mood-span"));
-    // gradientSelection()
-})
+$(".comm-del").on("click", function (event) {
+    const id = $(this).data("id");
+    // console.log("delete id:", id);
+
+    $.ajax({
+        url: `/api/comments/${id}`,
+        method: "DELETE"
+    }).then((data) => {
+        console.log("delete comment data", data);
+        window.location.reload();
+    }).catch(err => {
+        console.log(err);
+    });
+});
+// this ends cindy's stuff
 
 $("#deleting").on("click", function () {
     event.preventDefault();

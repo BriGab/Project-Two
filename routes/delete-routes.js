@@ -1,13 +1,13 @@
 const { Mood, User, Post, Comment } = require("../models");
 // delete routes for everything
-module.exports = function (app) {
+module.exports = app => {
     // delete a user by id
     app.delete("/api/users/:id", (req, res) => {
         User.destroy({
             where: {
                 id: req.params.id
             }
-        }).then((dbUser) => {
+        }).then(dbUser => {
             res.sendStatus(200).json({
                 message: `user deleted ${dbUser}`
             });
@@ -30,28 +30,29 @@ module.exports = function (app) {
         });
     });
     // delete a post by id
-    app.delete("/api/posts/:id", function (req, res) {
+    app.delete("/api/posts/:id", (req, res) => {
         Post.destroy({
             include: [Comment],
             where: {
                 id: req.params.id
             }
-        }).then(function (dbPost) {
+        }).then(dbPost => {
             res.json(dbPost);
-        // }).then(() => {
-        //     Comment.destroy({
-        //         where: {
-        //             PostId: null
-        //         }
-        //     }).then(dbComment => {
-        //         console.log(dbComment);
-        //     }).catch(err => {
-        //         console.log(err);
-        //         // res.json(err);
-        //     });
         }).catch(err => {
             console.log(err);
-            // res.json(err);
+        });
+    });
+
+    // for comments
+    app.delete("api/comments/:id", (req, res) => {
+        Comment.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(dbComm => {
+            res.sendStatus(200).json({ message: `comment deleted ${dbComm}` });
+        }).catch(err => {
+            console.log(err);
         });
     });
 };

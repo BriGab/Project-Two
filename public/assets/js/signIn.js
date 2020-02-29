@@ -13,7 +13,7 @@ $(document).ready(function(){
         }
         $.post("api/login", signIn)
             .then(function () {
-                console.log(signIn);
+                // console.log(signIn);
                 window.location.assign(`/${user}/posts`);
                 // history.pushState("/");
             })

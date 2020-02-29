@@ -37,7 +37,8 @@ module.exports = function (app) {
               const mood = post.Mood
               const user = post.User
               const comments = post.Comments
-
+              const commCount = comments.length;
+              // console.log("commCount:", commCount)
               // console.log(comments)
 
               let obj = {
@@ -53,14 +54,17 @@ module.exports = function (app) {
                 username: user.username,
                 name: user.name,
                 // this was a pain in my ass to figure out
-                comments: comments
+                comments: comments,
+                commCount: commCount,
               }
               arr.push(obj);
             }
             return arr;
           }
 
-          const dataArray = postLoop(dataArr);
+        const dataArray = postLoop(dataArr);
+        
+        // console.log("dataArray with new commCount:", dataArray)
 
           const hbsObj = {
             post: dataArray,
