@@ -8,9 +8,7 @@ module.exports = app => {
                 id: req.params.id
             }
         }).then(dbUser => {
-            res.sendStatus(200).json({
-                message: `user deleted ${dbUser}`
-            });
+            res.sendStatus(200);
         }).catch(err => {
             res.json({ message: err.message });
         });
@@ -22,9 +20,7 @@ module.exports = app => {
                 id: req.params.id
             }
         }).then(dbMood => {
-            res.sendStatus(200).json({
-                message: `mood deleted ${dbMood}`
-            });
+            res.sendStatus(200);
         }).catch(err => {
             res.json({ message: err.message });
         });
@@ -44,15 +40,15 @@ module.exports = app => {
     });
 
     // for comments
-    app.delete("api/comments/:id", (req, res) => {
+    app.delete("/api/comments/:id", (req, res) => {
         Comment.destroy({
             where: {
                 id: req.params.id
             }
         }).then(dbComm => {
-            res.sendStatus(200).json({ message: `comment deleted ${dbComm}` });
+            res.json(dbComm)
         }).catch(err => {
-            console.log(err);
+            res.json({ message: err.message });
         });
     });
 };

@@ -11,16 +11,15 @@
         </div>
         <div class="hidden-comms {{id}}" style="display: none;">
             <div class="comm-container">
-            <ul class="relative">
                 {{#each comments}}
+            <ul class="relative commid-{{dataValues.id}}">
                 {{!-- {{log dataValues}} --}}
-                <li style="visibility: hidden;" class="{{dataValues.id}}">{{dataValues.id}}</li>
-                <li class="comm-body">{{dataValues.body}}</li>
-                <li class="comm-timestamp">{{dataValues.updatedAt}}<button style="font-size: 20px" class="comm-del material-icons md-light transp" data-id="{{dataValues.id}}">delete</button></li>
-                <li></li>
-                {{/each}}
+                <li style="visibility: hidden;" class="comm-id-{{dataValues.id}}">{{dataValues.id}}</li>
+                <li class="comm-body-{{dataValues.id}}">{{dataValues.body}}</li>
+                <li class="comm-timestamp-{{dataValues.id}}">{{dataValues.updatedAt}}<button style="font-size: 20px" class="comm-del material-icons md-light transp" data-id="{{dataValues.id}}">delete</button></li>
             </ul>
-            <form class="comments">
+                {{/each}}
+            <form class="comments comm-id-{{id}}">
                 <div>
                     <label for="comment">Got a comment?</label>
                     <textarea class="comm-text {{id}}" name="comment" placeholder="Your comments"></textarea>
